@@ -15,6 +15,8 @@ A web application to input ingredients and receive recipes.  Will store favorite
 
 * [FolderStructure]()
 * [Wireframe]()
+* [Database Structure and Overview]()
+* [Google Maps API Usage Information]()
 * [Features]()
 * [License]()
 
