@@ -27,7 +27,8 @@ A web application to input ingredients and receive recipes.  Will store favorite
 <h2 href="#Wireframe"  >Wireframe</h2>
 <p>We used <a href="https://excalidraw.com/" target="_blank">Excalidraw</a> to create a wireframe.  We are linking it here to display our thought process for this SPA.</p>
 
-
+<h2 href="#Database" >Database Structure and Overview</h2>
+<h2 href="#GoogleAPI" >Google Maps API Usage Information</h2>
 <h2 href="#Features" >Features</h2>
 <h2 href="#License" >License</h2>
 
