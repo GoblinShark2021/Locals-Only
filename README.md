@@ -1,6 +1,4 @@
 # momandpop
-A web application to input ingredients and receive recipes.  Will store favorites and get rid of disliked recipes.
-#Meal Hacks
 
 <p align="center">
     <img src="client/MPlogo.png" width="250"/>
@@ -18,6 +16,7 @@ A web application to input ingredients and receive recipes.  Will store favorite
 * [Database Structure and Overview]()
 * [Google Maps API Usage Information]()
 * [Features]()
+* [Contributors]()
 * [License]()
 
 <h2 href="#FolderStructure"  >File System Folder Structure</h2>
@@ -30,6 +29,7 @@ A web application to input ingredients and receive recipes.  Will store favorite
 <h2 href="#Database" >Database Structure and Overview</h2>
 <h2 href="#GoogleAPI" >Google Maps API Usage Information</h2>
 <h2 href="#Features" >Features</h2>
+<h2 href="#Contributors" >Contributors</h2>
 <h2 href="#License" >License</h2>
 
 This product is licensed under the MIT License - see the LICENSE.md file for details.
