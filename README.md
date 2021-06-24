@@ -33,7 +33,7 @@
 
 <table>
   <tr>
-    <td valign="top"> <img src="client/MPlogo.png" width="250"/></td>
+    <td valign="top"> <img src="eric_git.jpeg" width="250"/></td>
     <td valign="top"> <img src="client/MPlogo.png" width="250"/></td>
     <td valign="top"> <img src="client/MPlogo.png" width="250"/></td>
     <td valign="top"> <img src="client/MPlogo.png" width="250"/></td>
