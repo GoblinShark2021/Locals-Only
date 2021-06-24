@@ -31,7 +31,7 @@
 <h2 href="#Features" >Features</h2>
 <h2 href="#Contributors" >Contributors</h2>
 
-<table border="solid white 1px">
+<table >
   <tr>
     <td valign="top"> <img src="eric git.jpeg" width="250"/></td>
     <td valign="top"> <img src="charlie git.png" width="250"/></td>
@@ -46,9 +46,9 @@
   </tr>
    <tr>
       <td align="center"><a href="https://github.com/esaldivar" target="_blank" align="center"> <img src="githubIcon.png" alt="ericGitHub" width="50" height="50"/></a></td>
-      <td align="center"><a href="https://github.com/esaldivar" target="_blank" align="center"> <img src="githubIcon.png" alt="ericGitHub" width="50" height="50"/></a></td>
-      <td align="center"><a href="https://github.com/esaldivar" target="_blank" align="center"> <img src="githubIcon.png" alt="ericGitHub" width="50" height="50"/></a></td>
-      <td align="center"><a href="https://github.com/esaldivar" target="_blank" align="center"> <img src="githubIcon.png" alt="ericGitHub" width="50" height="50"/></a></td>
+      <td align="center"><a href="https://github.com/cmalave13" target="_blank" align="center"> <img src="githubIcon.png" alt="charlieGitHub" width="50" height="50"/></a></td>
+      <td align="center"><a href="https://github.com/cwalls45" target="_blank" align="center"> <img src="githubIcon.png" alt="cameronGitHub" width="50" height="50"/></a></td>
+      <td align="center"><a href="https://github.com/mikloska" target="_blank" align="center"> <img src="githubIcon.png" alt="miklosGitHub" width="50" height="50"/></a></td>
   </tr>
 </table>
 <h2 href="#License" >License</h2>
