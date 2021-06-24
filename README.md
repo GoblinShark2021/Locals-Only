@@ -26,8 +26,8 @@ A web application to input ingredients and receive recipes.  Will store favorite
 <p>We used <a href="https://excalidraw.com/" target="_blank">Excalidraw</a> to create a wireframe.  We are linking it here to display our thought process for this SPA.</p>
 
 
-<h2 href="#Features">Features</h2>
-<h2 href="#License">License</h2>
+<h2 href="#Features" align="center">Features</h2>
+<h2 href="#License" align="center">License</h2>
 
 This product is licensed under the MIT License - see the LICENSE.md file for details.
 
