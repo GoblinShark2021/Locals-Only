@@ -18,16 +18,16 @@ A web application to input ingredients and receive recipes.  Will store favorite
 * [Features]()
 * [License]()
 
-<h2 href="#FolderStructure" align="center" >File System Folder Structure</h2>
+<h2 href="#FolderStructure"  >File System Folder Structure</h2>
 <p>We used <a href="https://creately.com/" target="_blank">Creatly</a> to create our folder structure.  We are linking it here to display my thought process for this SPA.</p>
 
 
-<h2 href="#Wireframe" align="center" >Wireframe</h2>
+<h2 href="#Wireframe"  >Wireframe</h2>
 <p>We used <a href="https://excalidraw.com/" target="_blank">Excalidraw</a> to create a wireframe.  We are linking it here to display our thought process for this SPA.</p>
 
 
-<h2 href="#Features" align="center">Features</h2>
-<h2 href="#License" align="center">License</h2>
+<h2 href="#Features" >Features</h2>
+<h2 href="#License" >License</h2>
 
 This product is licensed under the MIT License - see the LICENSE.md file for details.
 
