@@ -35,8 +35,8 @@
   <tr>
     <td valign="top"> <img src="eric git.jpeg" width="250"/></td>
     <td valign="top"> <img src="charlie git.png" width="250"/></td>
-    <td valign="top"> <img src="client/MPlogo.png" width="250"/></td>
-    <td valign="top"> <img src="client/MPlogo.png" width="250"/></td>
+    <td valign="top"> <img src="camerongit.jpeg" width="250"/></td>
+    <td valign="top"> <img src="miklosgit.jpeg" width="250"/></td>
   </tr>
   <tr>
       <td valign="top"><h2 align="center">Eric Saldivar</h2></td>
