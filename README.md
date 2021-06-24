@@ -31,7 +31,7 @@
 <h2 href="#Features" >Features</h2>
 <h2 href="#Contributors" >Contributors</h2>
 
-<table>
+<table border="none">
   <tr>
     <td valign="top"> <img src="eric git.jpeg" width="250"/></td>
     <td valign="top"> <img src="charlie git.png" width="250"/></td>
