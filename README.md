@@ -35,10 +35,14 @@
   <tr>
     <td valign="top"> <img src="client/MPlogo.png" width="250"/></td>
     <td valign="top"> <img src="client/MPlogo.png" width="250"/></td>
+    <td valign="top"> <img src="client/MPlogo.png" width="250"/></td>
+    <td valign="top"> <img src="client/MPlogo.png" width="250"/></td>
   </tr>
   <tr>
-    <td valign="top"> <img src="client/MPlogo.png" width="250"/></td>
-    <td valign="top"> <img src="client/MPlogo.png" width="250"/></td>
+      <td valign="top"><h1>Eric Saldivar</h1></td>
+      <td valign="top"><h1>Eric Saldivar</h1></td>
+      <td valign="top"><h1>Eric Saldivar</h1></td>
+      <td valign="top"><h1>Eric Saldivar</h1></td>
   </tr>
 </table>
 <h2 href="#License" >License</h2>
