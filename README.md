@@ -39,7 +39,13 @@
     <td valign="top"> <img src="client/MPlogo.png" width="250"/></td>
   </tr>
   <tr>
-      <td valign="top"><h2 align="center"><a href="https://github.com/esaldivar" target="_blank">Eric Saldivar</a></h2></td>
+      <td valign="top"><h2 align="center">Eric Saldivar</h2></td>
+      <td valign="top"><h2 align="center">Charles Malave</h2></td>
+      <td valign="top"><h2 align="center">Cameron Walls</h2></td>
+      <td valign="top"><h2 align="center">Miklos Kertesz </h2></td>
+  </tr>
+   <tr>
+      <td valign="top"><a href="https://github.com/esaldivar" target="_blank"> <img src="githubIcon.png" alt="ericGitHub" width="40" height="40"/> </a></td>
       <td valign="top"><h2 align="center">Charles Malave</h2></td>
       <td valign="top"><h2 align="center">Cameron Walls</h2></td>
       <td valign="top"><h2 align="center">Miklos Kertesz </h2></td>
