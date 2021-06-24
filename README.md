@@ -40,9 +40,9 @@
   </tr>
   <tr>
       <td valign="top"><h1>Eric Saldivar</h1></td>
-      <td valign="top"><h1>Eric Saldivar</h1></td>
-      <td valign="top"><h1>Eric Saldivar</h1></td>
-      <td valign="top"><h1>Eric Saldivar</h1></td>
+      <td valign="top"><h1>Charles Malave</h1></td>
+      <td valign="top"><h1>Cameron Walls</h1></td>
+      <td valign="top"><h1>Miklos Kertesz </h1></td>
   </tr>
 </table>
 <h2 href="#License" >License</h2>
