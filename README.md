@@ -39,10 +39,10 @@
     <td valign="top"> <img src="client/MPlogo.png" width="250"/></td>
   </tr>
   <tr>
-      <td valign="top"><h1>Eric Saldivar</h1></td>
-      <td valign="top"><h1>Charles Malave</h1></td>
-      <td valign="top"><h1>Cameron Walls</h1></td>
-      <td valign="top"><h1>Miklos Kertesz </h1></td>
+      <td valign="top"><h2>Eric Saldivar</h2></td>
+      <td valign="top"><h2>Charles Malave</h2></td>
+      <td valign="top"><h2>Cameron Walls</h2></td>
+      <td valign="top"><h2>Miklos Kertesz </h2></td>
   </tr>
 </table>
 <h2 href="#License" >License</h2>
