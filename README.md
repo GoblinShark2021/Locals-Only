@@ -3,7 +3,7 @@ A web application to input ingredients and receive recipes.  Will store favorite
 #Meal Hacks
 
 <p align="center">
-    <img src="docs/logo.png" width="250"/>
+    <img src="client/MPlogo.png" width="250"/>
 </p>
 <h1 align ="center">Mom and Pop</h1>
 <p align="center">A place for people to find only local businesses they want where they are.</p>
