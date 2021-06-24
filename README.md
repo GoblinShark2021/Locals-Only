@@ -30,6 +30,17 @@
 <h2 href="#GoogleAPI" >Google Maps API Usage Information</h2>
 <h2 href="#Features" >Features</h2>
 <h2 href="#Contributors" >Contributors</h2>
+
+<table>
+  <tr>
+    <td valign="top"> <img src="client/MPlogo.png" width="250"/></td>
+    <td valign="top"> <img src="client/MPlogo.png" width="250"/></td>
+  </tr>
+  <tr>
+    <td valign="top"> <img src="client/MPlogo.png" width="250"/></td>
+    <td valign="top"> <img src="client/MPlogo.png" width="250"/></td>
+  </tr>
+</table>
 <h2 href="#License" >License</h2>
 
 This product is licensed under the MIT License - see the LICENSE.md file for details.
