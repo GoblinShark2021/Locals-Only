@@ -45,7 +45,7 @@
       <td valign="top"><h2 align="center">Miklos Kertesz </h2></td>
   </tr>
    <tr>
-      <td valign="top"><a href="https://github.com/esaldivar" target="_blank"> <img src="githubIcon.png" alt="ericGitHub" width="40" height="40"/> </a></td>
+      <td valign="top"><a href="https://github.com/esaldivar" target="_blank" align="center"> <img src="githubIcon.png" alt="ericGitHub" width="50" height="50"/></a></td>
       <td valign="top"><h2 align="center">Charles Malave</h2></td>
       <td valign="top"><h2 align="center">Cameron Walls</h2></td>
       <td valign="top"><h2 align="center">Miklos Kertesz </h2></td>
