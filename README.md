@@ -53,7 +53,7 @@
 </table>
 <h2 href="#License" >License</h2>
 
-This product is licensed under the MIT License - see the LICENSE.md file for details.
+This product is licensed under the MIT License.
 
 
 <h3 align="left">Languages and Tools:</h3>
