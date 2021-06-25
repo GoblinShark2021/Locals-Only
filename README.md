@@ -25,6 +25,7 @@
 
 <h2 href="#Wireframe"  >Wireframe</h2>
 <p>We used <a href="https://excalidraw.com/" target="_blank">Excalidraw</a> to create a wireframe.  We are linking it here to display our thought process for this SPA.</p>
+<img src="./docs/momandpopwireframe.png" width="800"/>
 
 <h2 href="#Database" >Database Structure and Overview</h2>
 <h2 href="#GoogleAPI" >Google Maps API Usage Information</h2>
