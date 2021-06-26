@@ -3,9 +3,11 @@ const express = require('express');
 const dotenv = require('dotenv').config();
 const app = express();
 const PORT = 3000;
+// const cors = require('cors')
 app.use(express.json());
 // Route Handlers
 //Default Error Handler
+// app.use(cors());
 app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
