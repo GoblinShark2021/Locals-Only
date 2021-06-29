@@ -1,5 +1,9 @@
 import React, { useCallback, useState, useRef } from 'react';
 import  { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api';
+// import { getGeocode, getLatLng } from 'use-places-autocomplete';
+// import { ComboboxOptionText, ComboboxInput, ComboboxPopOver, ComboboxList, ComboboxOption } from '@reach/combobox';
+//import '@reach/combobox/styles.css';
+import SearchBar from './SearchBar';
 
 const libraries = ['places'];
 const mapContainerStyle = {
@@ -39,10 +43,12 @@ const Map = () => {
 
     return (
         <div>
+            <SearchBar />
             <GoogleMap mapContainerStyle={mapContainerStyle} 
                 zoom={12} 
                 center={center}
                 options={options}
+                // enables user to click on location
                 onClick={(e) => {
                     setLocationMarker(current => [...current, 
                     {
@@ -62,6 +68,7 @@ const Map = () => {
                             origin: new window.google.maps.Point(0,0),
                             anchor: new window.google.maps.Point(15,15)
                         }}
+                        // selects location so that a text bubble can be displayed
                         onClick= {() => { 
                             setSelectedLocation(marker);
                         }}
