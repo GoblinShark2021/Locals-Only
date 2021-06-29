@@ -1,9 +1,9 @@
 import React, { useCallback, useState, useRef } from 'react';
 import  { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api';
-// import { getGeocode, getLatLng } from 'use-places-autocomplete';
-// import { ComboboxOptionText, ComboboxInput, ComboboxPopOver, ComboboxList, ComboboxOption } from '@reach/combobox';
+import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
+import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from '@reach/combobox';
 //import '@reach/combobox/styles.css';
-import SearchBar from './SearchBar';
+
 
 const libraries = ['places'];
 const mapContainerStyle = {
@@ -32,6 +32,11 @@ const Map = () => {
         mapRef.current = map;
     }, []);
 
+    const panTo = useCallback(({lat, lng}) => {
+        mapRef.current.panTo({ lat, lng });
+        mapRef.current.setZoom(14);
+    }, []);
+
     const {isLoaded, loadError} = useLoadScript({
         googleMapsApiKey:'AIzaSyAK8A7qjJL3kKkKaNC1HkTg4BDvDEKY_3A',
         libraries, 
@@ -43,7 +48,7 @@ const Map = () => {
 
     return (
         <div>
-            <SearchBar />
+            <Search panTo={panTo}/>
             <GoogleMap mapContainerStyle={mapContainerStyle} 
                 zoom={12} 
                 center={center}
@@ -89,5 +94,42 @@ const Map = () => {
     )
 }
 
+const Search = ({panTo}) => {
+    const {ready, value, suggestions: {status, data}, setValue, clearSuggestion} = usePlacesAutocomplete({
+        requestOpotions: {
+            location: {lat: () => 40.750999, lng: () => -73.605629 },
+            radius: 10000
+        }
+    });
 
+    return (
+        <div>
+            <Combobox 
+            // get lat and lng of location search
+            onSelect={async (address) => {
+                try{
+                    const geoCodes = await getGeocode({address});
+                    const {lat, lng} = await getLatLng(geoCodes[0]);
+                    panTo({ lat, lng });
+                    // console.log({lat,lng});
+                    } catch (error){
+                    console.log(error);
+                    }
+                }}
+            >
+                <ComboboxInput value={value} onChange={(e) => {
+                    setValue(e.target.value);
+                }}
+                disabled={!ready}
+                placeholder='Find Small Business'
+                />
+                <ComboboxPopover>
+                    {status === 'OK' && data.map(({id, description}, i) => (
+                        <ComboboxOption key={i} value={description} />
+                    ))}
+                </ComboboxPopover>
+            </Combobox>
+        </div>
+    )
+}
 export default Map;
