@@ -1,7 +1,8 @@
-import React, { useCallback, useState, useRef } from 'react';
+import React, { useCallback, useState, useRef, useEffect } from 'react';
 import  { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
 import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from '@reach/combobox';
+import axios from 'axios';
 //import '@reach/combobox/styles.css';
 
 
@@ -25,6 +26,24 @@ const Map = () => {
 
     const [locationMarker, setLocationMarker] = useState([]);
     const [selectedLocation, setSelectedLocation] = useState(null);
+    const [userCordinates, setUserCordinates] = useState({});
+
+    // useEffect(() => {
+    //     axios.get('/googleRequest', {
+    //         params: {
+    //             lat: userCordinates.lat,
+    //             lng: userCordinates.lng
+    //         }
+    //     })
+    //     .then(res => console.log(res))
+    //     .catch(err => console.log(err));
+    // }, [userCordinates]);
+
+    // useEffect(() => {
+    //     axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${userCordinates.lat},${userCordinates.lng}&radius=10000&type=supermarket&key=AIzaSyAK8A7qjJL3kKkKaNC1HkTg4BDvDEKY_3A`)
+    //         .then(res => console.log(res))
+    //         .catch(err => console.log(err));
+    // },[userCordinates]);
     
     //reference to the map
     const mapRef = useRef();
@@ -45,15 +64,16 @@ const Map = () => {
     //loadError ? 'There was an error loading the map' : 'Loading Map';
     if (loadError) return 'There was an error loading the map';
     if (!isLoaded) return 'Loading Map';
-    
+    console.log(userCordinates)
     return (
         <div>
-            <Search panTo={panTo}/>
+            <Search panTo={panTo} setUserCordinates={setUserCordinates}/>
             <GoogleMap mapContainerStyle={mapContainerStyle} 
                 zoom={12} 
                 center={center}
                 options={options}
                 clickableIcons={false}
+                // MapTypeId="a6203cae83730651"
                 // enables user to click on location
                 onClick={(e) => {
                     setLocationMarker(current => [...current, 
@@ -95,7 +115,7 @@ const Map = () => {
     )
 }
 
-const Search = ({panTo}) => {
+const Search = ({panTo, setUserCordinates}) => {
     const {ready, value, suggestions: {status, data}, setValue, clearSuggestions} = usePlacesAutocomplete({
         requestOpotions: {
             location: {lat: () => 40.750999, lng: () => -73.605629 },
@@ -114,7 +134,7 @@ const Search = ({panTo}) => {
                     const geoCodes = await getGeocode({address});
                     const {lat, lng} = await getLatLng(geoCodes[0]);
                     panTo({ lat, lng });
-                    // console.log({lat,lng});
+                    setUserCordinates({lat:lat, lng:lng})
                     } catch (error){
                     console.log(error);
                     }

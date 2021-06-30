@@ -1,13 +1,23 @@
 const path = require('path');
 const express = require('express');
+const axios= require('axios');
 const dotenv = require('dotenv').config();
 const app = express();
 const PORT = 3000;
-// const cors = require('cors')
+const cors = require('cors')
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 // Route Handlers
 //Default Error Handler
-// app.use(cors());
+app.use(cors());
+
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   next();
+// });
+
+
+
 app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
@@ -18,6 +28,8 @@ app.use((err, req, res, next) => {
   console.log(errorObj.log);
   return res.status(errorObj.status).json(errorObj.message);
 });
+
+// switching between production and development mode
 if (process.env.NODE_ENV === 'production') {
   // statically serve everything in the build folder on the route '/build'
   app.use('/build', express.static(path.join(__dirname, '../build')));
