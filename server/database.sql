@@ -1,26 +1,26 @@
-CREATE DATABASE momandpop;
+CREATE DATABASE locals_only;
 
-CREATE TABLE “Types” (
-	“Store_ID” serial NOT NULL,
-	“restaurant” serial NOT NULL,
-	“clothing” serial NOT NULL,
-	CONSTRAINT “Types_pk” PRIMARY KEY (“Store_ID”)
-) WITH (
-  OIDS=FALSE
+CREATE TABLE users(
+	id SERIAL PRIMARY KEY,
+	user_name VARCHAR(255) NOT NULL,
+	pass_word varchar(255) NOT NULL
 );
-CREATE TABLE “Restaurants” (
-	“Eric’s” serial NOT NULL,
-	“Miklos” serial NOT NULL,
-	“Charlies” serial NOT NULL,
-	CONSTRAINT “Restaurants_pk” PRIMARY KEY (“Eric’s”)
-) WITH (
-  OIDS=FALSE
+
+CREATE TABLE Favorites(
+	favorites_id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id),
+	favorite_store VARCHAR(255) NOT NULL
 );
-CREATE TABLE “Clothing Stores” (
-	“Moms” BINARY NOT NULL,
-	“Pops” BINARY NOT NULL
-) WITH (
-  OIDS=FALSE
+
+CREATE TABLE stores(
+	store_id INTEGER NOT NULL REFERENCES Favorites(favorites_id),
+	store_name VARCHAR(255) NOT NULL,
+	address VARCHAR(255) NOT NULL,
+	phone_number VARCHAR(255) NOT NULL
+
 );
-ALTER TABLE “Restaurants” ADD CONSTRAINT “Restaurants_fk0” FOREIGN KEY (“Eric’s”) REFERENCES “Types”(“restaurant”);
-ALTER TABLE “Clothing Stores” ADD CONSTRAINT “Clothing Stores_fk0" FOREIGN KEY (“Moms”) REFERENCES “Types”(“clothing”);
+-- ALTER TABLE "users" ADD CONSTRAINT "users_fk0" FOREIGN KEY ("user_name") REFERENCES ""("");
+-- ALTER TABLE "Favorites" ADD CONSTRAINT "Favorites_fk0" FOREIGN KEY ("user_id") REFERENCES "users"("id");
+-- ALTER TABLE "stores" ADD CONSTRAINT "stores_fk0" FOREIGN KEY ("store_name") REFERENCES "Favorites"("favorite_store");
+
+
