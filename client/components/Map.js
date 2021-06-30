@@ -18,7 +18,7 @@ const center = {
 
 const options= {
     disableDefaultUI: true,
-    zoomControl: true
+    zoomControl: true,
 }
 
 const Map = () => {
@@ -45,7 +45,7 @@ const Map = () => {
     //loadError ? 'There was an error loading the map' : 'Loading Map';
     if (loadError) return 'There was an error loading the map';
     if (!isLoaded) return 'Loading Map';
-
+    
     return (
         <div>
             <Search panTo={panTo}/>
@@ -53,6 +53,7 @@ const Map = () => {
                 zoom={12} 
                 center={center}
                 options={options}
+                clickableIcons={false}
                 // enables user to click on location
                 onClick={(e) => {
                     setLocationMarker(current => [...current, 
@@ -95,7 +96,7 @@ const Map = () => {
 }
 
 const Search = ({panTo}) => {
-    const {ready, value, suggestions: {status, data}, setValue, clearSuggestion} = usePlacesAutocomplete({
+    const {ready, value, suggestions: {status, data}, setValue, clearSuggestions} = usePlacesAutocomplete({
         requestOpotions: {
             location: {lat: () => 40.750999, lng: () => -73.605629 },
             radius: 10000
@@ -107,6 +108,8 @@ const Search = ({panTo}) => {
             <Combobox 
             // get lat and lng of location search
             onSelect={async (address) => {
+                setValue(address, false);
+                clearSuggestions();
                 try{
                     const geoCodes = await getGeocode({address});
                     const {lat, lng} = await getLatLng(geoCodes[0]);
