@@ -7,9 +7,9 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import { Link } from "react-router-dom";
 import HomeIcon from "@material-ui/icons/Home";
-import MapIcon from '@material-ui/icons/Map';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import Button from '@material-ui/core/Button';
+import MapIcon from "@material-ui/icons/Map";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,13 +21,13 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
     textAlign: "center",
-    // marginRight: "160px",
-    justifyContent: "center"
+    // marginRight: "85px",
+    // justifyContent: "center",
   },
 
   logo: {
-    maxWidth: 80,
-    textAlign: "center",
+    maxWidth: 60,
+    // textAlign: "center",
   },
   stylebar: {
     background: "#fcd87c",
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     marginRight: theme.spacing(2),
-    color: "#8766b9"
+    color: "#8766b9",
   },
 }));
 
@@ -54,7 +54,7 @@ export default function Nav() {
               color="inherit"
               aria-label="menu"
             >
-               <MapIcon />
+              <MapIcon />
             </IconButton>
           </Link>
 
@@ -65,20 +65,21 @@ export default function Nav() {
               color="inherit"
               aria-label="menu"
             >
-              <FavoriteIcon/>
+              <FavoriteIcon />
             </IconButton>
           </Link>
 
-
           <Typography variant="h6" className={classes.title}>
             <img
-              src={'../client/assests/logo2.png'}
+              src={"../client/assests/logo2.png"}
               alt="logo"
               className={classes.logo}
             />
           </Typography>
-          <Link  style={{ textDecoration: "none" }} to={{ pathname: "/login" }} >
-            <Button className={classes.button} color="inherit">LOGIN</Button>
+          <Link style={{ textDecoration: "none" }} to={{ pathname: "/login" }}>
+            <Button className={classes.button} color="inherit">
+              LOGIN
+            </Button>
           </Link>
         </Toolbar>
       </AppBar>
