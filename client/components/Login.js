@@ -116,7 +116,7 @@ export default function Login() {
                 autoComplete="current-password"
               />
               <FormControlLabel
-                control={<Checkbox value="remember" color="#fcd87c" />}
+                control={<Checkbox value="remember" />}
                 label="Remember me"
               />
               <Link2 style={{ textDecoration: "none" }} to={{ pathname: "/map" }}>
@@ -130,9 +130,11 @@ export default function Login() {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2" color="inherit">
+                  <Link2 style={{ textDecoration: "none" }} to={{ pathname: "/signup" }}>
+                  <Link variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
+                  </Link2>
                 </Grid>
               </Grid>
               <Box mt={5}>
