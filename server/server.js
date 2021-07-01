@@ -4,17 +4,22 @@ const axios= require('axios');
 const dotenv = require('dotenv').config();
 const app = express();
 const PORT = 3000;
-const cors = require('cors')
-app.use(express.urlencoded({extended: true}));
+const cors = require('cors');
+
 app.use(express.json());
-// Route Handlers
-//Default Error Handler
-app.use(cors());
+app.use(cors({
+  origin: '*',
+}));
 
 // app.use((req, res, next) => {
 //   res.header('Access-Control-Allow-Origin', '*');
 //   next();
 // });
+
+app.get('/googleRequest/', cors(), (req,res) => {
+  console.log(req);
+  return res.status(200);
+})
 
 
 

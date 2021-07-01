@@ -28,16 +28,16 @@ const Map = () => {
     const [selectedLocation, setSelectedLocation] = useState(null);
     const [userCordinates, setUserCordinates] = useState({});
 
-    // useEffect(() => {
-    //     axios.get('/googleRequest', {
-    //         params: {
-    //             lat: userCordinates.lat,
-    //             lng: userCordinates.lng
-    //         }
-    //     })
-    //     .then(res => console.log(res))
-    //     .catch(err => console.log(err));
-    // }, [userCordinates]);
+    useEffect(() => {
+        axios.get('/googleRequest/', {
+            params: {
+                lat: userCordinates.lat,
+                lng: userCordinates.lng
+            }
+        })
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+    }, [userCordinates]);
 
     // useEffect(() => {
     //     axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${userCordinates.lat},${userCordinates.lng}&radius=10000&type=supermarket&key=AIzaSyAK8A7qjJL3kKkKaNC1HkTg4BDvDEKY_3A`)
