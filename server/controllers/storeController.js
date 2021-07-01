@@ -31,21 +31,21 @@ storeController.getStores = (req, res, next) => {
 };
 
 storeController.postUser = async (req, res, next) => {
-  try {
-    const {username, password} = req.body;
-    const newUser = await db.query(
-      "INSERT INTO users (user_name, pass_word) VALUES ($1,$2) RETURNING *", [username, password]      
-    );
-    res.user = newUser;
-    return next(); 
-  }
-  catch(err){
-    return next({
-      log: 'storeController.postUser: ERROR: Error adding user',
-      message: { err: `Error occurred in storeController.postUser. err log: ${err}` },
-    });
-  }
- 
+  // try {
+  //   const {username, password} = req.body;
+  //   const newUser = await db.query(
+  //     "INSERT INTO users (user_name, pass_word) VALUES ($1,$2) RETURNING *", [username, password]      
+  //   );
+  //   res.user = newUser;
+  //   return next(); 
+  // }
+  // catch(err){
+  //   return next({
+  //     log: 'storeController.postUser: ERROR: Error adding user',
+  //     message: { err: `Error occurred in storeController.postUser. err log: ${err}` },
+  //   });
+  // }
+ console.log(req.body)
 
 
 }

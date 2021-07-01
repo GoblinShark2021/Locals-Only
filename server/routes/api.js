@@ -14,8 +14,8 @@ router.get('/',
 router.post('/',
  storeController.postUser, 
   (req, res) => {
-    //console.log( 'store' ,res.locals.stores);
-    res.status(200).json(res.user);
+    console.log(req);
+    return res.status(200).json(res.user);
   }
  
 );

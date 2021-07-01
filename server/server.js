@@ -9,7 +9,7 @@ const PORT = 3000;
 // const cors = require('cors')
 app.use(express.json());
 // Route Handlers
- app.use('/api', apiRouter);
+app.use('/api', apiRouter);
 
 //Default Error Handler
 // app.use(cors());
@@ -25,14 +25,14 @@ app.use((err, req, res, next) => {
 });
 
 // switching between production and development mode
-if (process.env.NODE_ENV === 'production') {
+
   // statically serve everything in the build folder on the route '/build'
   app.use('/build', express.static(path.join(__dirname, '../build')));
   // serve index.html on the route '/'
   app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html'));
+    return res.sendFile(path.join(__dirname, '../index.html'));
   });
-}
+
 // Catch-all to unknown routes (404)
 app.use((req,res) => res.status(404).send('not found'))
 //Start Server

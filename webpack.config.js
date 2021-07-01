@@ -37,7 +37,7 @@ module.exports = {
     historyApiFallback: true,
     publicPath: '/build',
     proxy: {
-      '/users': {
+      '/api': {
         target: 'http://localhost:3000',
       },
       '/googleRequest': {
