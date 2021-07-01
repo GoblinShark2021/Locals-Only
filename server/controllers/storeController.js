@@ -7,13 +7,13 @@ storeController.getStores = (req, res, next) => {
 
   try{
     
-    const SQLQueryString = 'SELECT tb1.*';
+    const SQLQueryString = 'SELECT * FROM users';
 
                      
 
     db.query(SQLQueryString)
       .then(data =>{
-        // console.log(data);
+        console.log(data);
         res.locals.stores = data.rows;
         // return data.rows;
         return next();
@@ -23,9 +23,34 @@ storeController.getStores = (req, res, next) => {
   } 
   catch(err){
     return next({
-      log: 'storeController.getStores: ERROR: Error getting characters data from characters.json file',
+      log: 'storeController.getStores: ERROR: Error getting stores data from stores.json file',
       message: { err: `Error occurred in storeController.getStores. err log: ${err}` },
     });
   }
   
 };
+
+storeController.postUser = async (req, res, next) => {
+  try {
+    const {username, password} = req.body;
+    const newUser = await db.query(
+      "INSERT INTO users (user_name, pass_word) VALUES ($1,$2) RETURNING *", [username, password]      
+    );
+    res.user = newUser;
+    return next(); 
+  }
+  catch(err){
+    return next({
+      log: 'storeController.postUser: ERROR: Error adding user',
+      message: { err: `Error occurred in storeController.postUser. err log: ${err}` },
+    });
+  }
+ 
+
+
+}
+
+
+
+
+module.exports = storeController;

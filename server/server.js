@@ -3,26 +3,16 @@ const express = require('express');
 const axios= require('axios');
 const dotenv = require('dotenv').config();
 const app = express();
+const apiRouter = require('./routes/api')
 const PORT = 3000;
-const cors = require('cors');
 
+// const cors = require('cors')
 app.use(express.json());
-app.use(cors({
-  origin: '*',
-}));
+// Route Handlers
+ app.use('/api', apiRouter);
 
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   next();
-// });
-
-app.get('/googleRequest/', cors(), (req,res) => {
-  console.log(req);
-  return res.status(200);
-})
-
-
-
+//Default Error Handler
+// app.use(cors());
 app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
@@ -49,4 +39,4 @@ app.use((req,res) => res.status(404).send('not found'))
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
 });
-module.exports = app;
+//module.exports = app;
