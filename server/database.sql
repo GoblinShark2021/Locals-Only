@@ -25,3 +25,4 @@ CREATE TABLE users (
 -- ALTER TABLE "stores" ADD CONSTRAINT "stores_fk0" FOREIGN KEY ("store_name") REFERENCES "Favorites"("favorite_store");
 
 
+-- INSERT INTO "users"("first_name", "last_name", "email_address", "pass_word") VALUES('charlie', 'malave', 'cm@gmail.com', 'jlfdsal') RETURNING "id", "first_name", "last_name", "email_address", "pass_word";

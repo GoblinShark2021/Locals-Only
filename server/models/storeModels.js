@@ -8,7 +8,7 @@ const connectionString = "postgres://lvoqcovn:iBiw2apzCtGMZ6VMKOXfGdky99vbKg0R@b
 // create a new pool here using the connection string above
 const pool = new Pool({
   user: "postgres",
-  password: "Luca1113",
+  password: "eric",
   database: "locals_only",
   host: "localhost",
   port: 5432
