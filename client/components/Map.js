@@ -29,8 +29,8 @@ const Map = () => {
     const [userCordinates, setUserCordinates] = useState({});
 
     useEffect(() => {
-        axios.get('/googleRequest/', {
-            params: {
+        axios.get('/googleRequest', {
+            data: {
                 lat: userCordinates.lat,
                 lng: userCordinates.lng
             }

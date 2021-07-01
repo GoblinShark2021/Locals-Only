@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Lock from "@material-ui/icons/LockOutlined";
+import axios from "axios";
 
 function Copyright() {
   return (
@@ -60,6 +61,26 @@ const useStyles = makeStyles((theme) => ({
 export default function SignUp() {
   const classes = useStyles();
 
+  const [userFirstName, setUserFirstName] = useState('');
+  const [userLastName, setUserLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log('post called')
+    axios.post('/api', {
+        data: {
+          firstName: userFirstName,
+          lastName: userLastName,
+          email: email,
+          password: password
+        }
+      })
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -72,6 +93,8 @@ export default function SignUp() {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
+                onChange={(e) => setUserFirstName(e.target.value)}
+                value={userFirstName}
                 autoComplete="fname"
                 name="firstName"
                 variant="outlined"
@@ -84,6 +107,8 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+              onChange={(e) => setUserLastName(e.target.value)}
+              value={userLastName}
                 variant="outlined"
                 required
                 fullWidth
@@ -95,6 +120,8 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12}>
               <TextField
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
                 variant="outlined"
                 required
                 fullWidth
@@ -106,6 +133,8 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12}>
               <TextField
+              onChange={(e) => setPassword(e.target.value)}
+                value={password}
                 variant="outlined"
                 required
                 fullWidth
@@ -118,7 +147,8 @@ export default function SignUp() {
             </Grid>
           </Grid>
           <Button
-            type="submit"
+            type="button"
+            onClick={onSubmit}
             fullWidth
             variant="contained"
             color="primary"
