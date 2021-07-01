@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Map from "./components/Map";
 import Login from "./components/Login";
 import Favorites from "./components/Favorites";
+import SignUp from "./components/SignUp";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/map" component={Map} />
           <Route path="/login" exact component={Login} />
           <Route path="/favorites" exact component={Favorites} />
+          <Route path="/signup" exact component={SignUp} />
         </Switch>
       </section>
     </Router>
