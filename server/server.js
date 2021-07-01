@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const axios= require('axios');
 const dotenv = require('dotenv').config();
 const app = express();
 const apiRouter = require('./routes/api')
@@ -22,6 +23,8 @@ app.use((err, req, res, next) => {
   console.log(errorObj.log);
   return res.status(errorObj.status).json(errorObj.message);
 });
+
+// switching between production and development mode
 if (process.env.NODE_ENV === 'production') {
   // statically serve everything in the build folder on the route '/build'
   app.use('/build', express.static(path.join(__dirname, '../build')));
