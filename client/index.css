@@ -1,6 +1,15 @@
 body {
-  background: pink;
+  background:white;
+  margin: 0;
 }
-h1 {
-  color: red;
+
+.googleMap {
+  height: 70vh;
+  width: 70vw;
+  position: relative;
+}
+
+.locationImage {
+  height: 3em;
+  width: 3em;
 }

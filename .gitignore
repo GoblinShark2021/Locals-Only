@@ -20,3 +20,6 @@ coverage/
 
 #babel settings
 .babelrc
+
+#package.json-add cross-env
+.package.json
