@@ -23,6 +23,7 @@ import "./styles/styles.css";
 import Selection from "./Selection";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
+import mapStyles from "./styles/mapStyle";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,6 +54,7 @@ const center = {
 const options = {
   disableDefaultUI: true,
   zoomControl: true,
+  styles: mapStyles,
 };
 
 const Map = () => {
@@ -100,7 +102,18 @@ const Map = () => {
   });
 
   const sendFavoriteBusiness = (location) => {
-    console.log("location", location);
+    console.log(location);
+    // axios.post("/", {
+    //   params: {
+    //     name: location.name,
+    //     address: location.vicinity,
+    //     id: location.place_id,
+    //     price_level: location.price_level,
+    //     rating: location.rating,
+    //   }
+    //     .then((res) => console.log(res))
+    //     .catch((err) => console.log(err)),
+    // });
   };
 
   //loadError ? 'There was an error loading the map' : 'Loading Map';
@@ -121,6 +134,7 @@ const Map = () => {
       />
       <Search panTo={panTo} setUserCordinates={setUserCordinates} />
       <GoogleMap
+        className={classes.root}
         mapContainerStyle={mapContainerStyle}
         zoom={12}
         center={center}

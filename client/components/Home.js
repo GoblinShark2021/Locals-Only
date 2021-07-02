@@ -12,8 +12,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     textAlign: "center",
-    marginTop: "1rem",
-    marginBottom: "3rem",
+    // marginTop: "1rem",
+    // marginBottom: "3rem",
 
     // width: "95%",
   },
@@ -89,7 +89,7 @@ const Home = () => {
 
   return (
     <div className={classes.root} id="homePage">
-      <Container component="section" maxWidth="md" className={classes.root}>
+      <Container component="section" maxWidth="xs" className={classes.root}>
         <Grid container spacing={3}>
           <br />
           <Grid item xs={12}>
