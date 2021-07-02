@@ -4,6 +4,7 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     first_name text NOT NULL,
     last_name text NOT NULL,
+    email text NOT NULL,
     pass_word text NOT NULL
 );
 
@@ -25,3 +26,4 @@ CREATE TABLE users (
 -- ALTER TABLE "stores" ADD CONSTRAINT "stores_fk0" FOREIGN KEY ("store_name") REFERENCES "Favorites"("favorite_store");
 
 
+-- INSERT INTO "users"("first_name", "last_name", "email_address", "pass_word") VALUES('charlie', 'malave', 'cm@gmail.com', 'jlfdsal') RETURNING "id", "first_name", "last_name", "email_address", "pass_word";
