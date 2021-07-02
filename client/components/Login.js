@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -16,6 +16,7 @@ import { yellow } from "@material-ui/core/colors";
 import IconButton from "@material-ui/core/IconButton";
 import DateRangeIcon from "@material-ui/icons/DateRange";
 import { Link as Link2 } from "react-router-dom";
+import axios from "axios";
 
 const theme = createMuiTheme({
   palette: {
@@ -82,7 +83,21 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login() {
   const classes = useStyles();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log('post called')
+    axios.post('/api/login', {
+        data: {
+          email: email,
+          password: password
+        }
+      })
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }
   return (
     <ThemeProvider theme={theme}>
       <Grid container component="main" className={classes.root}>
@@ -96,6 +111,7 @@ export default function Login() {
                 variant="outlined"
                 color="primary"
                 margin="normal"
+                onChange={(e) => setEmail(e.target.value)}
                 required
                 fullWidth
                 id="email"
@@ -107,6 +123,7 @@ export default function Login() {
               <TextField
                 variant="outlined"
                 margin="normal"
+                onChange={(e) => setPassword(e.target.value)}
                 required
                 fullWidth
                 name="password"
@@ -120,7 +137,7 @@ export default function Login() {
                 label="Remember me"
               />
               <Link2 style={{ textDecoration: "none" }} to={{ pathname: "/map" }}>
-                <Button fullWidth className={classes.button}>login</Button>
+                <Button fullWidth className={classes.button} onClick={onSubmit}>login</Button>
               </Link2>
 
               <Grid container>

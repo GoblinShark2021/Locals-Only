@@ -8,9 +8,7 @@ storeController.login = async (req, res, next) => {
 
   try{
     //destructuring the request body data
-    const {email, password} = req.body;
-    //encrypt the request password to compare to the database password
-    const comparePassword = await bcrypt.hash(password, 10);
+    const {email, password} = req.body.data;
     //query the database for the email, if email exists then go 
     await db.query(
       'SELECT * FROM users WHERE email = $1', [email], (err, results) => {
@@ -24,7 +22,8 @@ storeController.login = async (req, res, next) => {
               throw err;
             }
             if(isMatch){
-              console.log('its a match')
+              console.log('its a match');
+              return next();
             } else {
               console.log('passwords do not match')
             }

@@ -15,15 +15,14 @@ router.get('/googleRequest', (req, res) => {
 
 
 router.post('/login',
- storeController.login, 
+  storeController.login, 
   (req, res) => {
-    res.status(200).send(res.answer);
+    res.status(200).send('you got this');
   }
- 
 );
 
 router.post('/',
- storeController.postUser, 
+  storeController.postUser, 
   (req, res) => {
     console.log(req);
     return res.status(200).json(res.user);
