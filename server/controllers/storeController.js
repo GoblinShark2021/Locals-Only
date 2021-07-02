@@ -24,9 +24,11 @@ storeController.login = async (req, res, next) => {
             }
             if(isMatch){
               console.log('everything is good');
+              res.answer = 'yes';
               return next();
             } else {
               console.log('passwords do not match')
+              next();
             }
           })
         }
@@ -34,7 +36,6 @@ storeController.login = async (req, res, next) => {
 
     )
 
-    return next();
   } 
   catch(err){
     return next({
