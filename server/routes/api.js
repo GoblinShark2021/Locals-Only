@@ -14,11 +14,10 @@ router.get('/googleRequest', (req, res) => {
 
 
 
-router.get('/',
- storeController.getStores, 
+router.post('/login',
+ storeController.login, 
   (req, res) => {
-    //console.log( 'store' ,res.locals.stores);
-    res.status(200).json(res.locals.stores);
+    res.status(200).send(res.answer);
   }
  
 );
