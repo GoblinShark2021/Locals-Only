@@ -18,7 +18,26 @@ import {
 } from "@reach/combobox";
 import axios from "axios";
 //import '@reach/combobox/styles.css';
+import "./styles/styles.css";
+
 import Selection from "./Selection";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    padding: theme.spacing(12, 4),
+  },
+  button: {
+    background: "#8766b9",
+    border: 0,
+    borderRadius: 3,
+    boxShadow: "0 3px 5px 2px rgba(53, 56, 57)",
+    color: "white",
+    height: 22,
+    padding: "0 35px",
+  },
+}));
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -37,6 +56,7 @@ const options = {
 };
 
 const Map = () => {
+  const classes = useStyles();
   const [locationMarker, setLocationMarker] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [userCordinates, setUserCordinates] = useState({});
@@ -57,9 +77,8 @@ const Map = () => {
         },
       })
       .then((res) => {
-        console.log("res", res.data);
         setRequestData(res.data);
-        console.log(res.data[0].geometry.location.lat);
+        console.log(res.data);
       })
       .catch((err) => console.log(err));
   }, [userCordinates]);
@@ -80,14 +99,16 @@ const Map = () => {
     libraries,
   });
 
+  const sendFavoriteBusiness = (location) => {
+    console.log("location", location);
+  };
+
   //loadError ? 'There was an error loading the map' : 'Loading Map';
   if (loadError) return "There was an error loading the map";
   if (!isLoaded) return "Loading Map";
-  console.log("business", business);
-  console.log("distance", distance);
+
   return (
     <div>
-      <Search panTo={panTo} setUserCordinates={setUserCordinates} />
       <Selection
         business={business}
         setBusiness={setBusiness}
@@ -98,7 +119,7 @@ const Map = () => {
         toggleDistance={toggleDistance}
         setToggleDistance={setToggleDistance}
       />
-
+      <Search panTo={panTo} setUserCordinates={setUserCordinates} />
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         zoom={12}
@@ -150,6 +171,12 @@ const Map = () => {
             <div>
               <p>{selectedLocation.name}</p>
               <p>{selectedLocation.vicinity}</p>
+              <Button
+                className={classes.button}
+                onClick={() => sendFavoriteBusiness(selectedLocation)}
+              >
+                Add To Favorites
+              </Button>
             </div>
           </InfoWindow>
         ) : null}
