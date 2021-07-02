@@ -81,10 +81,18 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Login() {
+export default function Login(props) {
+  console.log(props);
   const classes = useStyles();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loggedIn, setLoggedIn] = useState(''); 
+
+  //this will route after 2 secs to the favorites page
+  // setTimeout(() => {
+  //   props.history.push('/favorites')
+  // }, 2000);
+
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -95,9 +103,22 @@ export default function Login() {
           password: password
         }
       })
-    .then(res => console.log(res))
+    .then(res => {
+      if(res.data === 'good'){
+        setLoggedIn(true);
+      }
+      console.log(res.data)
+    })
     .catch(err => console.log(err))
   }
+  
+  if(loggedIn){
+    setTimeout(() => {
+        props.history.push('/favorites')
+      }, 2000);
+  }
+  
+  
   return (
     <ThemeProvider theme={theme}>
       <Grid container component="main" className={classes.root}>

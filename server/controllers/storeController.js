@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt')
 
 const storeController = {};
 
+
 storeController.login = async (req, res, next) => {
   // write code here
 
@@ -22,7 +23,7 @@ storeController.login = async (req, res, next) => {
               throw err;
             }
             if(isMatch){
-              console.log('its a match');
+              console.log('everything is good');
               return next();
             } else {
               console.log('passwords do not match')
@@ -44,7 +45,7 @@ storeController.login = async (req, res, next) => {
   
 };
 
-storeController.postUser = async (req, res, next) => {
+storeController.registerUser = async (req, res, next) => {
   
   try {
     const {firstName, lastName, email, password} = req.body.data;
@@ -52,7 +53,6 @@ storeController.postUser = async (req, res, next) => {
     const newUser = await db.query(
       'INSERT INTO users (first_name, last_name, email, pass_word) VALUES ($1,$2,$3,$4) RETURNING *', [firstName, lastName, email, hashedPassWord]      
     );
-    res.user = newUser;
     return next(); 
   }
   catch(err){

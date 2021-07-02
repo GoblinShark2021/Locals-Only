@@ -17,12 +17,12 @@ router.get('/googleRequest', (req, res) => {
 router.post('/login',
   storeController.login, 
   (req, res) => {
-    res.status(200).send('you got this');
+      return res.status(200).send('good');
   }
 );
 
-router.post('/',
-  storeController.postUser, 
+router.post('/register',
+  storeController.registerUser, 
   (req, res) => {
     console.log(req);
     return res.status(200).json(res.user);
