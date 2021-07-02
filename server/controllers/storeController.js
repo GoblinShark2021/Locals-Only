@@ -32,11 +32,12 @@ storeController.getStores = (req, res, next) => {
 };
 
 storeController.postUser = async (req, res, next) => {
+  
   try {
     const {firstName, lastName, email, password} = req.body.data;
     const hashedPassWord = await bcrypt.hash(password, 10)
     const newUser = await db.query(
-      "INSERT INTO users (first_name, last_name, email_address, pass_word) VALUES ($1,$2,$3,$4) RETURNING *", [firstName, lastName, email, hashedPassWord]      
+      "INSERT INTO users (first_name, last_name, email, pass_word) VALUES ($1,$2,$3,$4) RETURNING *", [firstName, lastName, email, hashedPassWord]      
     );
     res.user = newUser;
     return next(); 
