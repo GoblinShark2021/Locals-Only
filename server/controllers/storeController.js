@@ -32,6 +32,8 @@ storeController.getStores = (req, res, next) => {
 };
 
 storeController.postUser = async (req, res, next) => {
+
+  
   try {
     const {firstName, lastName, email, password} = req.body.data;
     const hashedPassWord = await bcrypt.hash(password, 10)

@@ -11,6 +11,8 @@ router.get('/',
  
 );
 
+
+//sign up route
 router.post('/',
  storeController.postUser, 
   (req, res) => {

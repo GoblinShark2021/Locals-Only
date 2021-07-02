@@ -1,15 +1,28 @@
 const path = require('path');
 const express = require('express');
-const axios= require('axios');
 const dotenv = require('dotenv').config();
 const app = express();
-const apiRouter = require('./routes/api')
+const apiRouter = require('./routes/api');
 const PORT = 3000;
+const session = require('express-session');
+const flash = require('express-flash');
+
 
 // const cors = require('cors')
 app.use(express.json());
+
+//session -- parses cookies, max time of 3 mins, no initial cookie
+// app.use(session({
+//   secret: 'super secret',
+//   cookie: {maxAge: 180000},
+//   saveUninitialized: false,
+//   resave: false
+// }));
 // Route Handlers
 app.use('/api', apiRouter);
+//test route for login
+
+
 
 //Default Error Handler
 // app.use(cors());
@@ -39,4 +52,5 @@ app.use((req,res) => res.status(404).send('not found'))
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
 });
-//module.exports = app;
+
+module.exports = app;
