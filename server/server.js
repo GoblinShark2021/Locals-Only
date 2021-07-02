@@ -5,9 +5,9 @@ const dotenv = require('dotenv').config();
 const app = express();
 const apiRouter = require('./routes/api')
 const PORT = 3000;
-
 // const cors = require('cors')
 app.use(express.json());
+
 // Route Handlers
 app.use('/api', apiRouter);
 

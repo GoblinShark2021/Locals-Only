@@ -1,6 +1,14 @@
 const express = require('express');
 const storeController = require('../controllers/storeController');
+const googleRequestCollers = require('../controllers/googleRequestController');
 const router = express.Router();
+
+
+router.get('/googleRequest', googleRequestCollers.getBusinesses, (req, res) => {
+  res.status(200).json(res.locals);
+})
+
+
 
 router.get('/',
  storeController.getStores, 
