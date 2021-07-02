@@ -60,18 +60,18 @@ const classes = useStyles();
     setOpen(true);
   };
 
-//   const [distance, setDistance] = React.useState('');
-//   const [openDistance, setOpenDistance] = React.useState(false);
+  const [distance, setDistance] = React.useState('');
+  const [openDistance, setOpenDistance] = React.useState(false);
  
-//   const handleChangeDistance = (event) => {
-//     setDistance(event.target.value);
-//   };
-//   const handleCloseDistance = () => {
-//     setOpenDistance(false);
-//   };
-//   const handleOpenDistance = () => {
-//     setOpenDistance(true);
-//   };
+  const handleChangeDistance = (event) => {
+    setDistance(event.target.value);
+  };
+  const handleCloseDistance = () => {
+    setOpenDistance(false);
+  };
+  const handleOpenDistance = () => {
+    setOpenDistance(true);
+  };
 
 
 
@@ -88,15 +88,17 @@ const classes = useStyles();
         axios.get('/api/googleRequest', {
             params: {
                 lat: userCordinates.lat,
-                lng: userCordinates.lng
+                lng: userCordinates.lng,
+                business: (business ? business : 'restaurant') ,
+                distance: distance
             }
         })
         .then(res => {
             setRequestData(res.data);
-            console.log(res.data[0].geometry)
+            console.log(res.data[0].geometry.location.lat)
         })
         .catch(err => console.log(err));
-    }, [userCordinates]);
+    }, [userCordinates, business, distance]);
     
     //reference to the map
     const mapRef = useRef();
@@ -117,7 +119,7 @@ const classes = useStyles();
     //loadError ? 'There was an error loading the map' : 'Loading Map';
     if (loadError) return 'There was an error loading the map';
     if (!isLoaded) return 'Loading Map';
-    // console.log('request', requestData[0].geometry);
+    console.log('select', business);
     return (
         <div>
             <Search panTo={panTo} setUserCordinates={setUserCordinates}/>
@@ -144,7 +146,6 @@ const classes = useStyles();
                   <MenuItem value={'cafe'}>Cafe</MenuItem>
                   <MenuItem value={'bakery'}>Bakery</MenuItem>
                   <MenuItem value={'liquor_store'}>Liquor Store</MenuItem>
-                  <MenuItem value={'liquor_store'}>Liquor Store</MenuItem>
                   <MenuItem value={'beauty_salon'}>Salon</MenuItem>
                   <MenuItem value={'bicycle_store'}>Bike Store</MenuItem>
                   <MenuItem value={'book_store'}>Book Store</MenuItem>
@@ -163,9 +164,9 @@ const classes = useStyles();
               </FormControl>
             </div>
             
-            {/* <div>
+            <div>
               <Button className={classes.button} onClick={handleOpenDistance}>
-                Select Business
+                Select Distance
               </Button>
               <FormControl className={classes.formControl}>
                 <Select
@@ -186,7 +187,7 @@ const classes = useStyles();
                   <MenuItem value={'16093'}>10 Miles</MenuItem>
                 </Select>
               </FormControl>
-            </div> */}
+            </div> 
          
 
 
@@ -206,10 +207,10 @@ const classes = useStyles();
                 ])}}
                 onLoad={onMapLoad}
                 >
-                {locationMarker.map((marker, i) => (
+                {requestData.map((location, i) => (
                     <Marker 
                         key={i} 
-                        position={{lat: marker.lat, lng: marker.lng}}
+                        position={{lat: location.geometry.location.lat, lng: location.geometry.location.lng}}
                         icon= {{
                             url: '../client/assests/logo.png',
                             scaledSize: new window.google.maps.Size(30,30),
@@ -218,18 +219,19 @@ const classes = useStyles();
                         }}
                         // selects location so that a text bubble can be displayed
                         onClick= {() => { 
-                            setSelectedLocation(marker);
+                            setSelectedLocation(location);
                         }}
                         />
                 ))}
                 {selectedLocation ? (<InfoWindow 
-                    position={{lat: selectedLocation.lat, lng: selectedLocation.lng}}
+                    position={{lat: selectedLocation.geometry.location.lat, lng: selectedLocation.geometry.location.lng}}
                     onCloseClick={() => {
                         setSelectedLocation(null);
                     }}
                 >
                     <div>
-                        <p>this is where all the business info goes</p>
+                        <p>{selectedLocation.name}</p>
+                        <p>{selectedLocation.vicinity}</p>
                     </div>
                 </InfoWindow>) : null}
             </GoogleMap>
@@ -266,7 +268,7 @@ const Search = ({panTo, setUserCordinates}) => {
                     setValue(e.target.value);
                 }}
                 disabled={!ready}
-                placeholder='Find Small Business'
+                placeholder='Enter Your City'
                 />
                 <ComboboxPopover>
                     {status === 'OK' && data.map(({id, description}, i) => (
