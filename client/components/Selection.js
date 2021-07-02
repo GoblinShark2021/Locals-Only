@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -23,40 +23,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Selection = () => {
-  //menu
+const Selection = ({
+  business,
+  setBusiness,
+  distance,
+  setDistance,
+  toggleBusiness,
+  setToggleBusiness,
+  toggleDistance,
+  setToggleDistance,
+}) => {
   const classes = useStyles();
-  const [business, setBusiness] = React.useState("");
-  const [open, setOpen] = React.useState(false);
 
-  const handleChangeBusiness = (event) => {
-    setBusiness(event.target.value);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const [distance, setDistance] = React.useState("");
-  const [openDistance, setOpenDistance] = React.useState(false);
-
-  const handleChangeDistance = (event) => {
-    setDistance(event.target.value);
-  };
-  const handleCloseDistance = () => {
-    setOpenDistance(false);
-  };
-  const handleOpenDistance = () => {
-    setOpenDistance(true);
-  };
-
-  //end menu
   return (
     <Container>
       <div>
-        <Button className={classes.button} onClick={handleOpen}>
+        <Button
+          className={classes.button}
+          onClick={() => setToggleBusiness(true)}
+        >
           Select Business
         </Button>
         <FormControl className={classes.formControl}>
@@ -64,11 +49,11 @@ const Selection = () => {
           <Select
             labelId="demo-controlled-open-select-label"
             id="demo-controlled-open-select"
-            open={open}
-            onClose={handleClose}
-            onOpen={handleOpen}
+            open={toggleBusiness}
+            onClose={() => setToggleBusiness(false)}
+            onOpen={() => setToggleBusiness(true)}
             value={business}
-            onChange={handleChangeBusiness}
+            onChange={(e) => setBusiness(e.target.value)}
           >
             <MenuItem value="">
               <em>locals only.</em>
@@ -96,18 +81,21 @@ const Selection = () => {
       </div>
 
       <div>
-        <Button className={classes.button} onClick={handleOpenDistance}>
+        <Button
+          className={classes.button}
+          onClick={() => setToggleDistance(true)}
+        >
           Select Distance
         </Button>
         <FormControl className={classes.formControl}>
           <Select
             labelId="demo-controlled-open-select-label"
             id="demo-controlled-open-select"
-            open={openDistance}
-            onClose={handleCloseDistance}
-            onOpen={handleOpenDistance}
+            open={toggleDistance}
+            onClose={() => setToggleDistance(false)}
+            onOpen={() => setToggleDistance(true)}
             value={distance}
-            onChange={handleChangeDistance}
+            onChange={(e) => setDistance(e.target.value)}
           >
             <MenuItem value="">
               <em>Distance</em>

@@ -41,6 +41,10 @@ const Map = () => {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [userCordinates, setUserCordinates] = useState({});
   const [requestData, setRequestData] = useState([]);
+  const [business, setBusiness] = useState("");
+  const [toggleBusiness, setToggleBusiness] = useState(false);
+  const [distance, setDistance] = useState("");
+  const [toggleDistance, setToggleDistance] = useState(false);
 
   useEffect(() => {
     axios
@@ -48,16 +52,17 @@ const Map = () => {
         params: {
           lat: userCordinates.lat,
           lng: userCordinates.lng,
-          business: business ? business : "restaurant",
+          business: business,
           distance: distance,
         },
       })
       .then((res) => {
+        console.log("res", res.data);
         setRequestData(res.data);
         console.log(res.data[0].geometry.location.lat);
       })
       .catch((err) => console.log(err));
-  }, [userCordinates, business, distance]);
+  }, [userCordinates]);
 
   //reference to the map
   const mapRef = useRef();
@@ -78,11 +83,22 @@ const Map = () => {
   //loadError ? 'There was an error loading the map' : 'Loading Map';
   if (loadError) return "There was an error loading the map";
   if (!isLoaded) return "Loading Map";
-  console.log("select", business);
+  console.log("business", business);
+  console.log("distance", distance);
   return (
     <div>
       <Search panTo={panTo} setUserCordinates={setUserCordinates} />
-      <Selection />
+      <Selection
+        business={business}
+        setBusiness={setBusiness}
+        toggleBusiness={toggleBusiness}
+        setToggleBusiness={setToggleBusiness}
+        distance={distance}
+        setDistance={setDistance}
+        toggleDistance={toggleDistance}
+        setToggleDistance={setToggleDistance}
+      />
+
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         zoom={12}
