@@ -4,7 +4,11 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     first_name text NOT NULL,
     last_name text NOT NULL,
+<<<<<<< HEAD
     email_address text NOT NULL UNIQUE,
+=======
+    email text NOT NULL,
+>>>>>>> 08696dc1898b13f321e89b8f722b60619c7cca09
     pass_word text NOT NULL
 );
 
