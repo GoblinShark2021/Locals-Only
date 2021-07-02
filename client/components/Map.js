@@ -5,6 +5,27 @@ import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption 
 import axios from 'axios';
 //import '@reach/combobox/styles.css';
 
+//material-ui stuff
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+    button: {
+      display: 'block',
+      color: '#8766b9',
+      marginTop: theme.spacing(2),
+      marginBottom: 0,
+    },
+    formControl: {
+      margin: theme.spacing(1),
+      minWidth: 120,
+    },
+  }));
+  
 
 const libraries = ['places'];
 const mapContainerStyle = {
@@ -24,27 +45,58 @@ const options= {
 
 const Map = () => {
 
+//menu
+const classes = useStyles();
+  const [business, setBusiness] = React.useState('');
+  const [open, setOpen] = React.useState(false);
+
+  const handleChangeBusiness = (event) => {
+    setBusiness(event.target.value);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+//   const [distance, setDistance] = React.useState('');
+//   const [openDistance, setOpenDistance] = React.useState(false);
+ 
+//   const handleChangeDistance = (event) => {
+//     setDistance(event.target.value);
+//   };
+//   const handleCloseDistance = () => {
+//     setOpenDistance(false);
+//   };
+//   const handleOpenDistance = () => {
+//     setOpenDistance(true);
+//   };
+
+
+
+
+//end menu
+
+
     const [locationMarker, setLocationMarker] = useState([]);
     const [selectedLocation, setSelectedLocation] = useState(null);
     const [userCordinates, setUserCordinates] = useState({});
+    const [requestData, setRequestData] = useState([]);
 
     useEffect(() => {
-        console.log(userCordinates)
         axios.get('/api/googleRequest', {
             params: {
                 lat: userCordinates.lat,
                 lng: userCordinates.lng
             }
         })
-        .then(res => console.log(res))
+        .then(res => {
+            setRequestData(res.data);
+            console.log(res.data[0].geometry)
+        })
         .catch(err => console.log(err));
     }, [userCordinates]);
-
-    // useEffect(() => {
-    //     axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${userCordinates.lat},${userCordinates.lng}&radius=10000&type=supermarket&key=AIzaSyAK8A7qjJL3kKkKaNC1HkTg4BDvDEKY_3A`)
-    //         .then(res => console.log(res))
-    //         .catch(err => console.log(err));
-    // },[userCordinates]);
     
     //reference to the map
     const mapRef = useRef();
@@ -65,10 +117,79 @@ const Map = () => {
     //loadError ? 'There was an error loading the map' : 'Loading Map';
     if (loadError) return 'There was an error loading the map';
     if (!isLoaded) return 'Loading Map';
-    console.log(userCordinates)
+    // console.log('request', requestData[0].geometry);
     return (
         <div>
             <Search panTo={panTo} setUserCordinates={setUserCordinates}/>
+
+            <div>
+              <Button className={classes.button} onClick={handleOpen}>
+                Select Business
+              </Button>
+              <FormControl className={classes.formControl}>
+                {/* <InputLabel id="demo-controlled-open-select-label">Business</InputLabel> */}
+                <Select
+                  labelId="demo-controlled-open-select-label"
+                  id="demo-controlled-open-select"
+                  open={open}
+                  onClose={handleClose}
+                  onOpen={handleOpen}
+                  value={business}
+                  onChange={handleChangeBusiness}
+                >
+                  <MenuItem value="">
+                    <em>locals only.</em>
+                  </MenuItem>
+                  <MenuItem value={'restaurant'}>Restaurant</MenuItem>
+                  <MenuItem value={'cafe'}>Cafe</MenuItem>
+                  <MenuItem value={'bakery'}>Bakery</MenuItem>
+                  <MenuItem value={'liquor_store'}>Liquor Store</MenuItem>
+                  <MenuItem value={'liquor_store'}>Liquor Store</MenuItem>
+                  <MenuItem value={'beauty_salon'}>Salon</MenuItem>
+                  <MenuItem value={'bicycle_store'}>Bike Store</MenuItem>
+                  <MenuItem value={'book_store'}>Book Store</MenuItem>
+                  <MenuItem value={'car_repair'}>Car Repair</MenuItem>
+                  <MenuItem value={'plumber'}>Plumber</MenuItem>
+                  <MenuItem value={'clothing_store'}>Clothing Store</MenuItem>
+                  <MenuItem value={'convenience_store'}>Bodega</MenuItem>
+                  <MenuItem value={'electrician'}>Electrician</MenuItem>
+                  <MenuItem value={'florist'}>Florist</MenuItem>
+                  <MenuItem value={'supermarket'}>Market</MenuItem>
+                  <MenuItem value={'hardware_store'}>Hardware Store</MenuItem>
+                  <MenuItem value={'home_goods_store'}>Home Goods</MenuItem>
+                  <MenuItem value={'locksmith'}>Locksmith</MenuItem>
+                  <MenuItem value={'bar'}>Bar</MenuItem>
+                </Select>
+              </FormControl>
+            </div>
+            
+            {/* <div>
+              <Button className={classes.button} onClick={handleOpenDistance}>
+                Select Business
+              </Button>
+              <FormControl className={classes.formControl}>
+                <Select
+                  labelId="demo-controlled-open-select-label"
+                  id="demo-controlled-open-select"
+                  open={openDistance}
+                  onClose={handleCloseDistance}
+                  onOpen={handleOpenDistance}
+                  value={distance}
+                  onChange={handleChangeDistance}
+                >
+                  <MenuItem value="">
+                    <em>Distance</em>
+                  </MenuItem>
+                  <MenuItem value={'1609'}>1 Mile</MenuItem>
+                  <MenuItem value={'3218'}>2 Miles</MenuItem>
+                  <MenuItem value={'8046'}>5 Miles</MenuItem>
+                  <MenuItem value={'16093'}>10 Miles</MenuItem>
+                </Select>
+              </FormControl>
+            </div> */}
+         
+
+
             <GoogleMap mapContainerStyle={mapContainerStyle} 
                 zoom={12} 
                 center={center}
