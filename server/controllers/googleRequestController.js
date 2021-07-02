@@ -4,10 +4,10 @@ const googleRequestController = {};
 
 googleRequestController.getBusinesses = (req, res, next) => {
     try {
-        const {lat, lng} = req.query;
-        axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=2000&keyword=resturant&key=${process.env.GOOGLE_API_KEY}`)
+        const {lat, lng, business, distance} = req.query;
+        axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=${distance}&keyword=${business}&key=${process.env.GOOGLE_API_KEY}`)
             .then(info => {
-                console.log(info.data.results);
+                // console.log(info.data.results);
                 res.locals = info.data.results;
                 return next(); 
             })
