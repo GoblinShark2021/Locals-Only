@@ -8,7 +8,9 @@ router.get('/googleRequest', googleRequestCollers.getBusinesses, (req, res) => {
   res.status(200).json(res.locals);
 })
 
-
+router.get('/getFavorites', storeController.getFavorites, (req,res) => {
+  res.status(200).json(res.favorites);
+})
 
 router.post('/login',
   storeController.login, 

@@ -46,6 +46,25 @@ storeController.login = async (req, res, next) => {
   
 };
 
+storeController.getFavorites = async (req, res, next) => {
+
+
+  try {
+    const favoriteStores = await db.query(
+      'SELECT * from favorite_places'    
+    );
+    res.favorites = favoriteStores.rows;
+    return next();
+  }
+  catch(err){
+    return next({
+      log: 'storeController.getFavorites: ERROR: Error getting favorite stores',
+      message: { err: `Error occurred in storeController.getFavorites. err log: ${err}` },
+    });
+
+}
+}
+
 storeController.registerUser = async (req, res, next) => {
   
   try {

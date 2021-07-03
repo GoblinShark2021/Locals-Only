@@ -19,15 +19,18 @@ import {
 import axios from "axios";
 //import '@reach/combobox/styles.css';
 import "./styles/styles.css";
-
-import Selection from "./Selection";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import mapStyles from "./styles/mapStyle";
+import Selection from "./Selection";
+import { FullscreenExit } from "@material-ui/icons";
+import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(12, 4),
+    // padding: theme.spacing(12, 4),
+    backgroundColor: "red"
+
   },
   button: {
     background: "#8766b9",
@@ -38,6 +41,11 @@ const useStyles = makeStyles((theme) => ({
     height: 22,
     padding: "0 35px",
   },
+  map: {
+    marginAuto: 0,
+    // alignItems: "center"
+
+  }
 }));
 
 const libraries = ["places"];
@@ -122,7 +130,7 @@ const Map = () => {
   if (!isLoaded) return "Loading Map";
 
   return (
-    <div>
+    <div className={classes.root} >
       <Selection
         business={business}
         setBusiness={setBusiness}
@@ -134,6 +142,7 @@ const Map = () => {
         setToggleDistance={setToggleDistance}
       />
       <Search panTo={panTo} setUserCordinates={setUserCordinates} />
+      <Container className={classes.map}>
       <GoogleMap
         className={classes.root}
         mapContainerStyle={mapContainerStyle}
@@ -196,6 +205,7 @@ const Map = () => {
           </InfoWindow>
         ) : null}
       </GoogleMap>
+      </Container>
     </div>
   );
 };

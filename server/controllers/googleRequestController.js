@@ -10,7 +10,6 @@ googleRequestController.getBusinesses = (req, res, next) => {
         `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=${distance}&keyword=${business}&key=${process.env.GOOGLE_API_KEY}`
       )
       .then((info) => {
-        console.log(info.data);
         res.locals = info.data.results;
         return next();
       })

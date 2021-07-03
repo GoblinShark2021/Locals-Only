@@ -89,14 +89,14 @@ const Home = () => {
 
   return (
     <div className={classes.root} id="homePage">
-      <Container component="section" maxWidth="xs" className={classes.root}>
+      <Container component="section" maxWidth="xl" className={classes.root}>
         <Grid container spacing={3}>
           <br />
           <Grid item xs={12}>
             {/* <h1 className={classes.titleH1}>locals only.</h1> */}
             <img
               className={classes.titleH1}
-              src={"https://i.imgur.com/tzyykQv.png"}
+              src={"https://i.imgur.com/Uy8F66Z.png"}
               alt="header"
             />
           </Grid>
