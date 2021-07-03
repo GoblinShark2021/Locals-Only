@@ -60,8 +60,8 @@ const mapContainerStyle = {
 };
 
 const center = {
-  lat: 40.750999,
-  lng: -73.605629,
+  lat: 40.7831,
+  lng: -73.9712,
 };
 
 const options = {
@@ -151,7 +151,7 @@ const Map = () => {
         <GoogleMap
           className={classes.root}
           mapContainerStyle={mapContainerStyle}
-          zoom={12}
+          zoom={11}
           center={center}
           options={options}
           clickableIcons={false}
