@@ -28,6 +28,10 @@
 <img src="./docs/momandpopwireframe.png" width="800"/>
 
 <h2 href="#Database" >Database Structure and Overview</h2>
+<p>We used <a href="https://app.dbdesigner.net/" target="_blank">DB Designer</a> to create a database schema and structure.  We are linking it here to display our SQL Database relationships and overview..</p>
+<img src="./docs/locals_only_PG_schema.png" width="800"/>
+<h2 href="#GoogleAPI" >Google Maps API Usage Information</h2>
+
 <h2 href="#GoogleAPI" >Google Maps API Usage Information</h2>
 <p>The <a href="https://developers.google.com/maps/documentation/places/web-service/overview">Google places API</a> and <a href="https://developers.google.com/maps/documentation/javascript/overview">Google Maps API</a> is what was utilized in this project. We layered Google places to set our markers on top of the map. The search box with autocomplete utilized a live update as the user searched for the location. The user is able to select a type of store and proximity radius to the selected location.
 
