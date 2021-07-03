@@ -5,7 +5,6 @@ const googleRequestController = {};
 googleRequestController.getBusinesses = (req, res, next) => {
   try {
     const { lat, lng, business, distance } = req.query;
-    console.log(lat, lng, distance, business);
     axios
       .get(
         `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=${distance}&keyword=${business}&key=${process.env.GOOGLE_API_KEY}`
