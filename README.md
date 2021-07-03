@@ -1,9 +1,9 @@
-# momandpop
+# locals_only
 
 <p align="center">
     <img src="./docs/MPlogo.png" width="250"/>
 </p>
-<h1 align ="center">Mom and Pop</h1>
+<h1 align ="center">Locals Only</h1>
 <p align="center">A place for people to find only local businesses they want where they are.</p>
 <p align="center">
 <img id="MIT-License" src="https://img.shields.io/apm/l/atomic-design-ui.svg?" />
@@ -21,7 +21,7 @@
 
 <h2 href="#FolderStructure"  >File System Folder Structure</h2>
 <p>We used <a href="https://creately.com/" target="_blank">Creatly</a> to create our folder structure.  We are linking it here to display my thought process for this SPA.</p>
-
+<img src="./docs/locals_only_fs" width="800"/>
 
 <h2 href="#Wireframe"  >Wireframe</h2>
 <p>We used <a href="https://excalidraw.com/" target="_blank">Excalidraw</a> to create a wireframe.  We are linking it here to display our thought process for this SPA.</p>
