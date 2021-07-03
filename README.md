@@ -30,6 +30,7 @@
 <h2 href="#Database" >Database Structure and Overview</h2>
 <p>We used <a href="https://app.dbdesigner.net/" target="_blank">DB Designer</a> to create a database schema and structure.  We are linking it here to display our SQL Database relationships and overview..</p>
 <img src="./docs/locals_only_PG_schema.png" width="800"/>
+
 <h2 href="#GoogleAPI" >Google Maps API Usage Information</h2>
 
 <h2 href="#GoogleAPI" >Google Maps API Usage Information</h2>
