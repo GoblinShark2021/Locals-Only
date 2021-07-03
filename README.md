@@ -6,10 +6,8 @@
 <h1 align ="center">Locals Only</h1>
 <p align="center">A place for people to find only local businesses they want where they are.</p>
 <p align="center">
-<img id="MIT-License" src="https://img.shields.io/apm/l/atomic-design-ui.svg?" />
-</p>
-
 <img src="./docs/preview.png" width="1200"/>
+</p>
 
 <h2 align="center">Table of Contents</h2>
 
