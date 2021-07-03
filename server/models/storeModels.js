@@ -4,7 +4,7 @@ dotenv.config();
 
 
 
-const connectionString = "postgres://ddlvuqvg:mEN_TjcyLZ3BXIc7W5Sk2Ce0A0OGGLxx@batyr.db.elephantsql.com/ddlvuqvg"
+const connectionString = 'postgres://ddlvuqvg:mEN_TjcyLZ3BXIc7W5Sk2Ce0A0OGGLxx@batyr.db.elephantsql.com/ddlvuqvg'
 // const connectionString = process.env.CONNECTION_URL; //PG_URI
 
 // create a new pool here using the connection string above

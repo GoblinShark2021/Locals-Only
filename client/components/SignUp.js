@@ -69,7 +69,7 @@ export default function SignUp() {
   const onSubmit = (e) => {
     e.preventDefault();
     console.log('post called')
-    axios.post('/api', {
+    axios.post('/api/register', {
         data: {
           firstName: userFirstName,
           lastName: userLastName,
