@@ -37,4 +37,11 @@ router.post('/favorites',
   }
 );
 
+router.delete('/deleteFavorite', storeController.deleteFavorite, (req, res)=> {
+  if(res.success === 'yes'){
+  return res.status(200).send('store deleted!');
+}
+  return res.status(200).send('did not delete the store!')
+})
+
 module.exports = router;

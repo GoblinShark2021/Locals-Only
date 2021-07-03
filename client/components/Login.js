@@ -116,7 +116,7 @@ export default function Login(props) {
   if (loggedIn) {
     setTimeout(() => {
       props.history.push("/favorites");
-    }, 2000);
+    }, 0);
   }
 
   return (
