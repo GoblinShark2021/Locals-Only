@@ -64,7 +64,7 @@ const Favorites = () => {
   return (
     <div>
       {favorites.map(place => (
-        <PlacesCard key={place.place_id} business={place}></PlacesCard>
+        <PlacesCard className="placeCard" key={place.place_id} business={place}></PlacesCard>
       ))}
     </div>
     // <Container component="section" maxWidth="lg" className={classes.root}>
