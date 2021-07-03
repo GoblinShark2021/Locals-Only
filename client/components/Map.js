@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
   map: {
     marginAuto: 0,
-    // alignItems: "center"
+    alignItems: "center"
 
   }
 }));
