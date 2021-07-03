@@ -28,6 +28,11 @@ router.post('/register',
  
 );
 
-
+router.post('/favorites',
+  storeController.favorites, 
+  (req, res) => {
+    return res.status(200).json(res.store);
+  }
+);
 
 module.exports = router;
