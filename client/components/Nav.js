@@ -15,19 +15,16 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
+
   title: {
     flexGrow: 1,
     textAlign: "center",
-    // marginRight: "85px",
-    // justifyContent: "center",
   },
 
   logo: {
     maxWidth: 60,
-    // textAlign: "center",
+
+    marginRight: "80px",
   },
   stylebar: {
     background: "#fcd87c",
@@ -47,6 +44,17 @@ export default function Nav() {
     <div className={classes.root}>
       <AppBar position="static" className={classes.stylebar}>
         <Toolbar>
+          <Link to={{ pathname: "/" }}>
+            <IconButton
+              edge="start"
+              className={classes.button}
+              color="inherit"
+              aria-label="menu"
+            >
+              <HomeIcon />
+            </IconButton>
+          </Link>
+
           <Link to={{ pathname: "/map" }}>
             <IconButton
               edge="start"
