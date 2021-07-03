@@ -8,6 +8,9 @@
 <p align="center">
 <img id="MIT-License" src="https://img.shields.io/apm/l/atomic-design-ui.svg?" />
 </p>
+
+<img src="./docs/preview.png" width="800"/>
+
 <h2 align="center">Table of Contents</h2>
 
 
