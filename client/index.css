@@ -1,5 +1,5 @@
 body {
-  background:white;
+  background: #9dddc1;
   margin: 0;
 }
 
@@ -12,4 +12,20 @@ body {
 .locationImage {
   height: 3em;
   width: 3em;
+}
+
+.searchBar {
+  position: absolute;
+  top: 12rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 400px;
+  z-index: 10;
+}
+
+.searchBar input {
+  padding: 0.5rem;
+  font: 1.5rem;
+  width: 100%;
 }

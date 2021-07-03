@@ -12,8 +12,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     textAlign: "center",
-    marginTop: "1rem",
-    marginBottom: "3rem",
+    backgroundColor: "#9dddc1",
+
+    // marginTop: "1rem",
+    // marginBottom: "3rem",
 
     // width: "95%",
   },
@@ -88,41 +90,61 @@ const Home = () => {
   }, []);
 
   return (
-    <div className={classes.root} id="homePage">
-      <Container component="section" maxWidth="md" className={classes.root}>
+    <div className={classes.root}>
+      <Container maxWidth="xl">
         <Grid container spacing={3}>
           <br />
           <Grid item xs={12}>
             {/* <h1 className={classes.titleH1}>locals only.</h1> */}
             <img
               className={classes.titleH1}
-              src={"https://i.imgur.com/tzyykQv.png"}
+              src={"https://i.imgur.com/Uy8F66Z.png"}
               alt="header"
             />
           </Grid>
           <br />
 
-          <Grid item xs={6} className={classes.typedJS}>
-            <h4>
-              A platform for locals to discover their new favorite business
-              without having to lean on big chain stores or wondering if they
-              even exist.
-            </h4>
-            <h5>How would you like to support your neighbors today?</h5>
-            <h4 ref={el}></h4>
-            <RoomIcon />
-            <Link style={{ textDecoration: "none" }} to={{ pathname: "/map" }}>
-              <Button className={classes.button}>Get Started</Button>
-            </Link>
+          <Grid item xs={6} sm={4}>
+            <div className={classes.typedJS}>
+              <h4>
+                A platform for locals to discover their new favorite business
+                without having to lean on big chain stores or wondering if they
+                even exist.
+              </h4>
+              <h5>How would you like to support your neighbors today?</h5>
+              <h4 ref={el}></h4>
+              <RoomIcon />
+              <Link
+                style={{ textDecoration: "none" }}
+                to={{ pathname: "/map" }}
+              >
+                <Button className={classes.button}>Get Started</Button>
+              </Link>
+            </div>
           </Grid>
 
-          <Grid item xs={6} className={classes.typedJS}>
-            <img
-              style={{ width: "335px" }}
-              src={"https://i.imgur.com/E05X9e9.png"}
-              alt="logo"
-              // className={classes.logo}
-            />
+          <Grid item xs={6} sm={4}>
+            <div className={classes.typedJS}>
+              <img
+                style={{ width: "335px" }}
+                src={"https://i.imgur.com/E05X9e9.png"}
+                alt="logo"
+                // className={classes.logo}
+              />
+            </div>
+          </Grid>
+
+          <Grid item xs={6} sm={4}>
+            <div className={classes.typedJS}>
+              <img
+                // style={{ width: "475px" }}
+                width="100%"
+                height="100%"
+                src={"https://i.imgur.com/t3c946o.png"}
+                alt="map"
+                // className={classes.logo}
+              />
+            </div>
           </Grid>
         </Grid>
       </Container>

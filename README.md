@@ -1,9 +1,9 @@
-# momandpop
+# locals_only
 
 <p align="center">
     <img src="./docs/MPlogo.png" width="250"/>
 </p>
-<h1 align ="center">Mom and Pop</h1>
+<h1 align ="center">Locals Only</h1>
 <p align="center">A place for people to find only local businesses they want where they are.</p>
 <p align="center">
 <img id="MIT-License" src="https://img.shields.io/apm/l/atomic-design-ui.svg?" />
@@ -21,7 +21,7 @@
 
 <h2 href="#FolderStructure"  >File System Folder Structure</h2>
 <p>We used <a href="https://creately.com/" target="_blank">Creatly</a> to create our folder structure.  We are linking it here to display my thought process for this SPA.</p>
-
+<img src="./docs/locals_only_fs.png" width="800"/>
 
 <h2 href="#Wireframe"  >Wireframe</h2>
 <p>We used <a href="https://excalidraw.com/" target="_blank">Excalidraw</a> to create a wireframe.  We are linking it here to display our thought process for this SPA.</p>
@@ -30,12 +30,18 @@
 <h2 href="#Database" >Database Structure and Overview</h2>
 <p>We used <a href="https://app.dbdesigner.net/" target="_blank">DB Designer</a> to create a database schema and structure.  We are linking it here to display our SQL Database relationships and overview..</p>
 <img src="./docs/locals_only_PG_schema.png" width="800"/>
+
 <h2 href="#GoogleAPI" >Google Maps API Usage Information</h2>
 
-The <a href="https://developers.google.com/maps/documentation/places/web-service/overview">Google places API</a> and <a href="https://developers.google.com/maps/documentation/javascript/overview">Google Maps API</a> is what was utilized in this project. We layered Google places to set our markers on top of the map. The search box with autocomplete utilized a live update as the user searched for the location. The user is able to select a type of store and proximity radius to the selected location.
+<h2 href="#GoogleAPI" >Google Maps API Usage Information</h2>
+<p>The <a href="https://developers.google.com/maps/documentation/places/web-service/overview">Google places API</a> and <a href="https://developers.google.com/maps/documentation/javascript/overview">Google Maps API</a> is what was utilized in this project. We layered Google places to set our markers on top of the map. The search box with autocomplete utilized a live update as the user searched for the location. The user is able to select a type of store and proximity radius to the selected location.
 
-Once the map renders the icons from our web application the user is able to select favorites. When the user selects favorite they will be able to see their favorite stores on the favorite portion of the website.
+Once the map renders the icons from our web application the user is able to select favorites. When the user selects favorite they will be able to see their favorite stores on the favorite portion of the website.</p>
+
 <h2 href="#Features" >Features</h2>
+
+
+
 <h2 href="#Contributors" >Contributors</h2>
 
 <table >

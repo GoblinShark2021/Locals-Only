@@ -8,26 +8,33 @@ router.get('/googleRequest', googleRequestCollers.getBusinesses, (req, res) => {
   res.status(200).json(res.locals);
 })
 
+router.get('/getFavorites', storeController.getFavorites, (req,res) => {
+  res.status(200).json(res.favorites);
+})
 
-
-router.get('/',
- storeController.getStores, 
+router.post('/login',
+  storeController.login, 
   (req, res) => {
-    //console.log( 'store' ,res.locals.stores);
-    res.status(200).json(res.locals.stores);
+    if(res.answer === 'yes'){
+      return res.status(200).send('good');
+    }
+    return res.status(200).send('no good');
   }
- 
 );
 
-router.post('/',
- storeController.postUser, 
+router.post('/register',
+  storeController.registerUser, 
   (req, res) => {
-    console.log(req);
     return res.status(200).json(res.user);
   }
  
 );
 
-
+router.post('/favorites',
+  storeController.favorites, 
+  (req, res) => {
+    return res.status(200).json(res.store);
+  }
+);
 
 module.exports = router;
