@@ -113,4 +113,24 @@ storeController.favorites = async (req, res, next) => {
 }
 }
 
+storeController.deleteFavorite = async (req, res, next) => {
+
+  const { place_id } = req.body;
+  console.log(place_id)
+  try {
+    const targetStore = await db.query(
+      'DELETE FROM favorite_places WHERE place_id = $1', [place_id]
+    );
+    res.success = 'yes';
+    return next();
+  }
+  catch(err){
+    return next({
+      log: 'storeController.getFavorites: ERROR: Error deleting favorite store',
+      message: { err: `Error occurred in storeController.deleteFavorite. err log: ${err}` },
+    });
+
+  }
+}
+
 module.exports = storeController;

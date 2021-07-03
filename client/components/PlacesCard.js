@@ -2,6 +2,8 @@ import React from "react";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
+import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
+import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,13 +16,17 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Arial",
     textAlign: "center",
     background: "#fdd87d",
-    height: "15rem",
+    height: "16rem",
     width: "25rem",
     border: "4px solid",
   },
+  button: {
+    color: "#f5856e",
+    marginTop: "-2rem",
+  },
 }));
 
-const PlacesCard = ({ business }) => {
+const PlacesCard = ({ business, onDelete }) => {
   const classes = useStyles();
 
   return (
@@ -31,6 +37,10 @@ const PlacesCard = ({ business }) => {
           <p>Address: {business.exact_address}</p>
           <p>Rating: {business.rating}</p>
           <p>Price Level: {business.price_level ? business.price_level : 'N/A'}</p>
+
+          <IconButton edge="start"  className={classes.button} onClick={() => onDelete(business.place_id)}>
+            <DeleteForeverIcon/>
+          </IconButton>
         </Grid>
       </Container>
     </div>
