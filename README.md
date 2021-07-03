@@ -15,6 +15,7 @@
 * [Wireframe](https://github.com/GoblinShark2021/momandpop/#Wireframe)
 * [Database Structure and Overview](https://github.com/GoblinShark2021/momandpop/#Database)
 * [Google Maps API Usage Information](https://github.com/GoblinShark2021/momandpop/#GoogleAPI)
+* [Collaboration Approach: Scrum](https://github.com/GoblinShark2021/momandpop/#Scrum)
 * [Contributors](https://github.com/GoblinShark2021/momandpop/#Contributors)
 * [License](https://github.com/GoblinShark2021/momandpop/#License)
 
@@ -34,6 +35,11 @@
 <p>The <a href="https://developers.google.com/maps/documentation/places/web-service/overview">Google places API</a> and <a href="https://developers.google.com/maps/documentation/javascript/overview">Google Maps API</a> is what was utilized in this project. We layered Google places to set our markers on top of the map. The search box with autocomplete utilized a live update as the user searched for the location. The user is able to select a type of store and proximity radius to the selected location.
 
 Once the map renders the icons from our web application the user is able to select favorites. When the user selects favorite they will be able to see their favorite stores on the favorite portion of the website.</p>
+
+<h2 href="#Scrum" >Collaboration Approach: Scrum with Trello Boards</h2>
+<p>We used a <a href="https://trello.com/">Trello</a> board to collaborate using the scrum method.  We separated teams into front and back end.  We created cards with tasks that needed to be completed.  We commented and updated each other on these cards when we weren't able to meet.  We moved our cards into different lists that let the team know where each overall task was in the project timeline.  We had standups in the beginning of the day and the end to go over any progress, issues, and to project future tasks required for our minimum viable product.  
+    
+ <img src="./docs/Scrum_locals_only.png" width="800"/>   
 
 <h2 href="#Contributors" >Contributors</h2>
 
