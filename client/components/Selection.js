@@ -15,20 +15,24 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     textAlign: "center",
     background: "#9dddc1",
-    // marginTop: "1rem",
+    // marginTop: -6,
     // marginBottom: "3rem",
 
     // width: "40%",
   },
   button: {
-    display: "block",
+    display: "inline",
     color: "#8766b9",
-    marginTop: theme.spacing(2),
-    marginBottom: 0,
+    marginTop: theme.spacing(1.5),
+    // marginBottom: 0,
+    // backgroundColor: "white",
   },
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
+  },
+  span: {
+    display: "inline",
   },
 }));
 
@@ -54,6 +58,7 @@ const Selection = ({
           >
             Select Business
           </Button>
+
           <FormControl className={classes.formControl}>
             {/* <InputLabel id="demo-controlled-open-select-label">Business</InputLabel> */}
             <Select

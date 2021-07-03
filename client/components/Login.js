@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -40,6 +40,7 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
+    backgroundColor: "#9dddc1",
   },
   image: {
     backgroundImage:
@@ -78,49 +79,48 @@ const useStyles = makeStyles((theme) => ({
     color: "#fcd87c",
     height: 48,
     padding: "0 35px",
-  }
+  },
 }));
 
 export default function Login(props) {
   console.log(props);
   const classes = useStyles();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [loggedIn, setLoggedIn] = useState(''); 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loggedIn, setLoggedIn] = useState("");
 
   //this will route after 2 secs to the favorites page
   // setTimeout(() => {
   //   props.history.push('/favorites')
   // }, 2000);
 
-
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log('post called')
-    axios.post('/api/login', {
+    console.log("post called");
+    axios
+      .post("/api/login", {
         data: {
           email: email,
-          password: password
-        }
+          password: password,
+        },
       })
-    .then(res => {
-      if(res.data === 'good'){
-        setLoggedIn(true);
-      }
-      console.log(res.data)
-    })
-    .catch(err => console.log(err))
-  }
-  
-  if(loggedIn){
+      .then((res) => {
+        if (res.data === "good") {
+          setLoggedIn(true);
+        }
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  if (loggedIn) {
     setTimeout(() => {
-        props.history.push('/favorites')
-      }, 2000);
+      props.history.push("/favorites");
+    }, 2000);
   }
-  
-  
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       <Grid container component="main" className={classes.root}>
         <CssBaseline />
         <Grid item xs={false} sm={4} md={7} className={classes.image} />
@@ -157,8 +157,13 @@ export default function Login(props) {
                 control={<Checkbox value="remember" />}
                 label="Remember me"
               />
-              <Link2 style={{ textDecoration: "none" }} to={{ pathname: "/map" }}>
-                <Button fullWidth className={classes.button} onClick={onSubmit}>login</Button>
+              <Link2
+                style={{ textDecoration: "none" }}
+                to={{ pathname: "/map" }}
+              >
+                <Button fullWidth className={classes.button} onClick={onSubmit}>
+                  login
+                </Button>
               </Link2>
 
               <Grid container>
@@ -168,10 +173,13 @@ export default function Login(props) {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link2 style={{ textDecoration: "none" }} to={{ pathname: "/signup" }}>
-                  <Link variant="body2">
-                    {"Don't have an account? Sign Up"}
-                  </Link>
+                  <Link2
+                    style={{ textDecoration: "none" }}
+                    to={{ pathname: "/signup" }}
+                  >
+                    <Link variant="body2">
+                      {"Don't have an account? Sign Up"}
+                    </Link>
                   </Link2>
                 </Grid>
               </Grid>
