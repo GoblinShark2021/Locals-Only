@@ -8,7 +8,6 @@ import Favorites from "./components/Favorites";
 import SignUp from "./components/SignUp";
 
 const App = () => {
-  
   return (
     <Router>
       <section>

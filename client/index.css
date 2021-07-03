@@ -1,5 +1,5 @@
 body {
-  background:white;
+  background: #9dddc1;
   margin: 0;
 }
 
@@ -16,7 +16,7 @@ body {
 
 .searchBar {
   position: absolute;
-  top: 20rem;
+  top: 12rem;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -27,5 +27,5 @@ body {
 .searchBar input {
   padding: 0.5rem;
   font: 1.5rem;
-  width:100%;
+  width: 100%;
 }
