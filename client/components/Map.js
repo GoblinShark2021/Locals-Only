@@ -103,17 +103,17 @@ const Map = () => {
 
   const sendFavoriteBusiness = (location) => {
     console.log(location);
-    // axios.post("/", {
-    //   params: {
-    //     name: location.name,
-    //     address: location.vicinity,
-    //     id: location.place_id,
-    //     price_level: location.price_level,
-    //     rating: location.rating,
-    //   }
-    //     .then((res) => console.log(res))
-    //     .catch((err) => console.log(err)),
-    // });
+    axios.post("/api/favorites", {
+      data: {
+        name: location.name,
+        address: location.vicinity,
+        id: location.place_id,
+        price_level: location.price_level,
+        rating: location.rating,
+      }
+    })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err))
   };
 
   //loadError ? 'There was an error loading the map' : 'Loading Map';

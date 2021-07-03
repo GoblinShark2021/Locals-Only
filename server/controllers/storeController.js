@@ -67,7 +67,31 @@ storeController.registerUser = async (req, res, next) => {
 
 }
 
+storeController.favorites = async (req, res, next) => {
 
+  const {id, name, address, price_level, rating} = req.body.data;
+ 
+  try {
 
+    const newStore = await db.query(
+      'INSERT INTO favorite_places (place_id, store_name, exact_address, price_level, rating) VALUES ($1,$2,$3,$4,$5) RETURNING *', [id, name, address, price_level, rating]      
+    );
+
+    const storeCheck = await db.query(
+      'SELECT * FROM favorite_places'
+    );
+    console.log(newStore);
+    console.log(storeCheck);
+    res.store = storeCheck;
+    return next(); 
+  }
+  catch(err){
+    return next({
+      log: 'storeController.postStore: ERROR: Error adding favorite store',
+      message: { err: `Error occurred in storeController.postUser. err log: ${err}` },
+    });
+
+}
+}
 
 module.exports = storeController;
