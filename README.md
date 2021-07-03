@@ -21,7 +21,7 @@
 
 <h2 href="#FolderStructure"  >File System Folder Structure</h2>
 <p>We used <a href="https://creately.com/" target="_blank">Creatly</a> to create our folder structure.  We are linking it here to display my thought process for this SPA.</p>
-<img src="./docs/locals_only_fs" width="800"/>
+<img src="./docs/locals_only_fs.png" width="800"/>
 
 <h2 href="#Wireframe"  >Wireframe</h2>
 <p>We used <a href="https://excalidraw.com/" target="_blank">Excalidraw</a> to create a wireframe.  We are linking it here to display our thought process for this SPA.</p>
