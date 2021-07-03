@@ -13,3 +13,19 @@ body {
   height: 3em;
   width: 3em;
 }
+
+.searchBar {
+  position: absolute;
+  top: 20rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 400px;
+  z-index: 10;
+}
+
+.searchBar input {
+  padding: 0.5rem;
+  font: 1.5rem;
+  width:100%;
+}

@@ -42,8 +42,9 @@ const useStyles = makeStyles((theme) => ({
 
 const libraries = ["places"];
 const mapContainerStyle = {
-  width: "80vw",
+  width: "90vw",
   height: "80vh",
+  margin: '0.5rem'
 };
 
 const center = {
@@ -214,7 +215,7 @@ const Search = ({ panTo, setUserCordinates }) => {
   });
 
   return (
-    <div>
+    <div className= 'searchBar'>
       <Combobox
         // get lat and lng of location search
         onSelect={async (address) => {
