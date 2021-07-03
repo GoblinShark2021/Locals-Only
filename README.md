@@ -11,12 +11,12 @@
 <h2 align="center">Table of Contents</h2>
 
 
-* [FolderStructure]()
-* [Wireframe]()
-* [Database Structure and Overview]()
-* [Google Maps API Usage Information]()
-* [Contributors]()
-* [License]()
+* [FolderStructure](https://github.com/GoblinShark2021/momandpop/#FolderStructure)
+* [Wireframe](https://github.com/GoblinShark2021/momandpop/#Wireframe)
+* [Database Structure and Overview](https://github.com/GoblinShark2021/momandpop/#Database)
+* [Google Maps API Usage Information](https://github.com/GoblinShark2021/momandpop/#GoogleAPI)
+* [Contributors](https://github.com/GoblinShark2021/momandpop/#Contributors)
+* [License](https://github.com/GoblinShark2021/momandpop/#License)
 
 <h2 href="#FolderStructure"  >File System Folder Structure</h2>
 <p>We used <a href="https://creately.com/" target="_blank">Creatly</a> to create our folder structure.  We are linking it here to display my thought process for this SPA.</p>
