@@ -30,7 +30,7 @@ const PlacesCard = ({ business }) => {
           <h1>{business.store_name}</h1>
           <p>Address: {business.exact_address}</p>
           <p>Rating: {business.rating}</p>
-          <p>Price Level: {business.price_level}</p>
+          <p>Price Level: {business.price_level ? business.price_level : 'N/A'}</p>
         </Grid>
       </Container>
     </div>
