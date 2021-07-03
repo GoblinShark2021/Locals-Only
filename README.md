@@ -32,7 +32,7 @@
 <img src="./docs/locals_only_PG_schema.png" width="800"/>
 <h2 href="#GoogleAPI" >Google Maps API Usage Information</h2>
 
-The <a href="https://developers.google.com/maps/documentation/places/web-service/overview">Google places API</a> and Google Maps API is what was utilized in this project. We layered Google places to set our markers on top of the map. The search box with autocomplete utilized a live update as the user searched for the location. The user is able to select a type of store and proximity radius to the selected location.
+The <a href="https://developers.google.com/maps/documentation/places/web-service/overview">Google places API</a> and <a href="https://developers.google.com/maps/documentation/javascript/overview">Google Maps API</a> is what was utilized in this project. We layered Google places to set our markers on top of the map. The search box with autocomplete utilized a live update as the user searched for the location. The user is able to select a type of store and proximity radius to the selected location.
 
 Once the map renders the icons from our web application the user is able to select favorites. When the user selects favorite they will be able to see their favorite stores on the favorite portion of the website.
 <h2 href="#Features" >Features</h2>
