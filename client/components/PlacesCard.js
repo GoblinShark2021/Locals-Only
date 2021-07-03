@@ -12,10 +12,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1.2rem",
     color: "#8766b9",
     fontFamily: "Arial",
-    textAlign: "left",
+    textAlign: "center",
     background: "#fdd87d",
-    height: "95%",
-    width: "95%",
+    height: "15rem",
+    width: "25rem",
     border: "4px solid",
   },
 }));

@@ -62,7 +62,7 @@ const Favorites = () => {
 
 
   return (
-    <div>
+    <div className='favorites'>
       {favorites.map(place => (
         <PlacesCard key={place.place_id} business={place}></PlacesCard>
       ))}
