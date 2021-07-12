@@ -9,7 +9,7 @@ describe('Route integration', () => {
     describe('GET', () => {
       it('responds with 200 status and text/html content type', () => request(server)
         .get('/')
-        .expect('Content-Type', /text\/html/)
+        .expect("Content-Type","text/html; charset=UTF-8")
         .expect(200));
     });
   });
