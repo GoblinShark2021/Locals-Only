@@ -6,29 +6,29 @@ const storeController = {};
 
 storeController.login = async (req, res, next) => {
   // write code here
-
+  console.log(req.body);
   try{
     //destructuring the request body data
     const {email, password} = req.body.data;
     //query the database for the email, if email exists then go 
     await db.query(
       'SELECT * FROM users WHERE email = $1', [email], (err, results) => {
-        if(err){
-          throw err;
+        if(results.rows.length === 0){
+          console.log('no user exists');
+          return next();
         } 
         if(results.rows.length > 0){
           const user = results.rows[0];
           bcrypt.compare(password, user.pass_word, (err, isMatch) => {
             if(err){
-              throw err;
+              return next();
             }
             if(isMatch){
-              console.log('everything is good');
-              res.answer = 'yes';
+              res.message = 'Successfully logged in.';
               return next();
             } else {
-              console.log('passwords do not match')
-              next();
+              console.log('Passwords do not match.')
+              return next();
             }
           })
         }
@@ -62,7 +62,7 @@ storeController.getFavorites = async (req, res, next) => {
       message: { err: `Error occurred in storeController.getFavorites. err log: ${err}` },
     });
 
-}
+  }
 }
 
 storeController.registerUser = async (req, res, next) => {
@@ -110,7 +110,7 @@ storeController.favorites = async (req, res, next) => {
       message: { err: `Error occurred in storeController.postUser. err log: ${err}` },
     });
 
-}
+  }
 }
 
 storeController.deleteFavorite = async (req, res, next) => {

@@ -15,10 +15,10 @@ router.get('/getFavorites', storeController.getFavorites, (req,res) => {
 router.post('/login',
   storeController.login, 
   (req, res) => {
-    if(res.answer === 'yes'){
+    if(res.message === 'Successfully logged in.'){
       return res.status(200).send('good');
     }
-    return res.status(200).send('no good');
+    return res.status(400).send('no good');
   }
 );
 
@@ -39,8 +39,8 @@ router.post('/favorites',
 
 router.delete('/deleteFavorite', storeController.deleteFavorite, (req, res)=> {
   if(res.success === 'yes'){
-  return res.status(200).send('store deleted!');
-}
+    return res.status(200).send('store deleted!');
+  }
   return res.status(200).send('did not delete the store!')
 })
 

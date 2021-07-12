@@ -15,7 +15,7 @@ app.use(express.urlencoded({extended:true}));
 
 //session information below
 app.use(session({
-  secret: "secret santa",
+  secret: 'secret santa',
   resave: false,
   saveUninitialized: false
 }));
