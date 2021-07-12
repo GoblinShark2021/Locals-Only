@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
-const { expect } = require('@jest/globals');
 const request = require('supertest');
 const server = 'http://localhost:3000';
-// const db = require('../server/models/storeModels');
 
 
 describe('Route integration', () => {
@@ -29,11 +27,14 @@ describe('Route integration', () => {
         .expect('Content-Type', /application\/json/)
         .expect(200)
         .then(response => {
-          console.log(response.body)
           expect(response.body.favorites).toEqual([]);
         })
         .catch(err => err));
     });
   });
+
+  
+
+
 
 });
