@@ -31,10 +31,6 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
     backgroundColor: "#9dddc1",
     justifyContent: "center",
-    // // marginAuto: 0,
-    // alignItems: "center",
-    // height: "100%",
-    // width: "100%",
   },
   button: {
     background: "#8766b9",
@@ -44,11 +40,7 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     height: 22,
     padding: "0 35px",
-  },
-  map: {
-    // marginAuto: 0,
-    // alignItems: "center"
-  },
+  }
 }));
 
 const libraries = ["places"];
@@ -155,7 +147,6 @@ const Map = () => {
           center={center}
           options={options}
           clickableIcons={false}
-          // MapTypeId="a6203cae83730651"
           // enables user to click on location
           onClick={(e) => {
             setLocationMarker((current) => [

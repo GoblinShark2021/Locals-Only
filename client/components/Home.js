@@ -1,7 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import { lineHeight } from "@material-ui/system";
 import Typed from "typed.js";
 import Container from "@material-ui/core/Container";
 import { Link } from "react-router-dom";
@@ -13,18 +12,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     textAlign: "center",
     backgroundColor: "#9dddc1",
-
-    // marginTop: "1rem",
-    // marginBottom: "3rem",
-
-    // width: "95%",
   },
   typedJS: {
     fontSize: "1.2rem",
-    // height: "9rem",
-    // margin: "0 auto",
-    // justifyContent: "center",
-    // opacity: "0.5",
     color: "#8766b9",
     fontFamily: "Arial",
     textAlign: "left",
