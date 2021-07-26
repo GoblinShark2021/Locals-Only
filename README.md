@@ -1,7 +1,7 @@
 # locals_only
 
 <p align="center">
-    <img src="./docs/MPlogo.png" width="250"/>
+    <img src="./docs/localsonlylogo2.png" width="250"/>
 </p>
 <h1 align ="center">Locals Only</h1>
 <p align="center">A place for people to find only local businesses they want where they are.</p>
